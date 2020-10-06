@@ -97,7 +97,7 @@
             </div>
             <div class="row justify-content-center">
                 <div class="col-sm">
-                    <a role="button" class="btn btn-primary btn-block btn-options m-3" href='#'>Création d'un nouveau
+                    <a role="button" class="btn btn-primary btn-block btn-options m-3" href='/devis1'>Création d'un nouveau
                         devis</a>
                 </div>
             </div>
