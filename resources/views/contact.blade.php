@@ -6,7 +6,7 @@
 
 @section('breadcrumb')
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href='/'>Accueil</a></li>
+        <li class="breadcrumb-item"><a href='/home'>Accueil</a></li>
         <li class="breadcrumb-item active">Contacts</li>
     </ol>
 @endsection
@@ -16,21 +16,21 @@
     <h1>Contacts</h1>
 
     <div class="row">
-        <div class="col-sm">
+        <div class="col-sm panel p-3 mr-2 rounded">
             <div class="row row-cols-1">
                 <div class="col m-1">
-                    <div class="card" style="max-width: 540px;">
+                    <div class="card">
                         <div class="row no-gutters">
                             <div class="col-md-4">
-                                <img src="..." class="card-img" alt="...">
+                                <svg class="bd-placeholder-img card-img"
+                                    xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"
+                                    focusable="false" role="img" >
+                                    <rect width="100%" height="100%" fill="#777"></rect>
+                                </svg>
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
                                     <h5 class="card-title">Client n°4 (Alain DELON)</h5>
-                                    {{-- <p class="card-text"><small
-                                            class="text-muted">Dernière modification il y a 2
-                                            minutes</small>
-                                    </p> --}}
                                     <p class="card-text">alain.delon@gmail.com</p>
                                     <a href="#" class="btn btn-outline-primary">Modifier</a>
                                 </div>
@@ -39,10 +39,14 @@
                     </div>
                 </div>
                 <div class="col m-1">
-                    <div class="card" style="max-width: 540px;">
+                    <div class="card">
                         <div class="row no-gutters">
                             <div class="col-md-4">
-                                <img src="..." class="card-img" alt="...">
+                                <svg class="bd-placeholder-img card-img"
+                                    xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"
+                                    focusable="false" role="img" >
+                                    <rect width="100%" height="100%" fill="#777"></rect>
+                                </svg>
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
@@ -55,10 +59,14 @@
                     </div>
                 </div>
                 <div class="col m-1">
-                    <div class="card" style="max-width: 540px;">
+                    <div class="card">
                         <div class="row no-gutters">
                             <div class="col-md-4">
-                                <img src="..." class="card-img" alt="...">
+                                <svg class="bd-placeholder-img card-img"
+                                    xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"
+                                    focusable="false" role="img" >
+                                    <rect width="100%" height="100%" fill="#777"></rect>
+                                </svg>
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
@@ -73,10 +81,12 @@
             </div>
         </div>
 
-        <div class="col-sm">
-
+        <div class="col-sm panel p-3 ml-2 rounded">
             <div class="nom-client">
-                <svg class="bd-placeholder-img rounded-circle" width="100" height="100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect></svg>
+                <svg class="bd-placeholder-img rounded-circle" width="100" height="100" xmlns="http://www.w3.org/2000/svg"
+                    preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140">
+                    <rect width="100%" height="100%" fill="#777"></rect>
+                </svg>
                 <h2 class="mt-2">Alain DELON</h2>
             </div>
 

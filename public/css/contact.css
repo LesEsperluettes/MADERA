@@ -1,3 +1,7 @@
 .nom_client{
     text-align: center;
 }
+
+.panel{
+    background-color: rgb(181, 215, 244);
+}
