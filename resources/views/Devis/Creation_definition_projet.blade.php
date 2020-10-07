@@ -24,7 +24,7 @@
 
     <div style="background-color: rgb(218, 235, 249);" class="m-3">
         <div class="p-3">
-            <form>
+            <form action="/devis2">
                 <div class="form-group">
                     <label for="choixClient">Référence client : </label>
                     <input id="refClient" name="refClient" type="hidden" value="valeur de la ref client">
