@@ -5,9 +5,9 @@
 @endsection
 
 @section('breadcrumb')
-    <ol class="breadcrumb">
+    <ol class="breadcrumb" style="border : 2px solid black; background-color : rgb(50, 85, 115); color:rgb(181, 215, 244)">
         <li class="breadcrumb-item"><a href='/home'>Accueil</a></li>
-        <li class="breadcrumb-item active">Contacts</li>
+        <li class="breadcrumb-item active" style="color:rgb(181, 215, 244)">Contacts</li>
     </ol>
 @endsection
 
@@ -82,7 +82,7 @@
         </div>
 
         <div class="col-sm panel p-3 ml-2 rounded">
-            <div class="nom-client">
+            <div class="nom-client" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
                 <svg class="bd-placeholder-img rounded-circle" width="100" height="100" xmlns="http://www.w3.org/2000/svg"
                     preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140">
                     <rect width="100%" height="100%" fill="#777"></rect>

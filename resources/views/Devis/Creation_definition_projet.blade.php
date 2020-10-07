@@ -4,9 +4,9 @@
 @endsection
 
 @section('breadcrumb')
-    <ol class="breadcrumb">
+    <ol class="breadcrumb" style="border : 2px solid black; background-color : rgb(50, 85, 115); color:rgb(181, 215, 244)">
         <li class="breadcrumb-item"><a href="/home">Accueil</a></li>
-        <li class="breadcrumb-item">Création d'un nouveau devis (Définition d'un nouveau projet)</li>
+        <li class="breadcrumb-item" style="color:rgb(181, 215, 244)">Création d'un nouveau devis (Définition d'un nouveau projet)</li>
     </ol>
 @endsection
 
@@ -28,10 +28,10 @@
                 <div class="form-group">
                     <label for="choixClient">Référence client : </label>
                     <input id="refClient" name="refClient" type="hidden" value="valeur de la ref client">
-                    <div id="choixClient">
-                        <a href="#" class="btn btn-outline-primary btn-lg btn-block" role="button">Client
+                    <div id="choixClient" style="display : flex; justify-content : center; align-items : center; flex-direction : column;">
+                        <a href="#" class="btn btn-outline-primary btn-lg btn-block" style="width : 70%; border: solid 2px" role="button">Client
                             existant</a>
-                        <a href="#" class="btn btn-outline-secondary btn-lg btn-block" role="button">Nouveau
+                        <a href="#" class="btn btn-outline-secondary btn-lg btn-block" style="width : 70%; border : solid 2px"   role="button">Nouveau
                             client</a>
                     </div>
                 </div>
