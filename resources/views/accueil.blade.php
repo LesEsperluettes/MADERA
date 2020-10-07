@@ -20,8 +20,10 @@
                     <div class="card" style="max-width: 540px;">
                         <div class="row no-gutters">
                             <div class="col-md-4">
-                                <img src="..." class="card-img" alt="...">
-                            </div>
+                                <svg class="bd-placeholder-img card-img" xmlns="http://www.w3.org/2000/svg"
+                                    preserveAspectRatio="xMidYMid slice" focusable="false" role="img">
+                                    <rect width="100%" height="100%" fill="#777"></rect>
+                                </svg> </div>
                             <div class="col-md-8">
                                 <div class="card-body">
                                     <h5 class="card-title">Devis n°4</h5>
@@ -38,8 +40,10 @@
                     <div class="card" style="max-width: 540px;">
                         <div class="row no-gutters">
                             <div class="col-md-4">
-                                <img src="..." class="card-img" alt="...">
-                            </div>
+                                <svg class="bd-placeholder-img card-img" xmlns="http://www.w3.org/2000/svg"
+                                    preserveAspectRatio="xMidYMid slice" focusable="false" role="img">
+                                    <rect width="100%" height="100%" fill="#777"></rect>
+                                </svg> </div>
                             <div class="col-md-8">
                                 <div class="card-body">
                                     <h5 class="card-title">Devis n°3</h5>
@@ -56,8 +60,10 @@
                     <div class="card" style="max-width: 540px;">
                         <div class="row no-gutters">
                             <div class="col-md-4">
-                                <img src="..." class="card-img" alt="...">
-                            </div>
+                                <svg class="bd-placeholder-img card-img" xmlns="http://www.w3.org/2000/svg"
+                                    preserveAspectRatio="xMidYMid slice" focusable="false" role="img">
+                                    <rect width="100%" height="100%" fill="#777"></rect>
+                                </svg> </div>
                             <div class="col-md-8">
                                 <div class="card-body">
                                     <h5 class="card-title">Devis n°2</h5>
@@ -74,8 +80,10 @@
                     <div class="card" style="max-width: 540px;">
                         <div class="row no-gutters">
                             <div class="col-md-4">
-                                <img src="..." class="card-img" alt="...">
-                            </div>
+                                <svg class="bd-placeholder-img card-img" xmlns="http://www.w3.org/2000/svg"
+                                    preserveAspectRatio="xMidYMid slice" focusable="false" role="img">
+                                    <rect width="100%" height="100%" fill="#777"></rect>
+                                </svg> </div>
                             <div class="col-md-8">
                                 <div class="card-body">
                                     <h5 class="card-title">Devis n°1</h5>
