@@ -10,6 +10,7 @@ jobs:
   validation-test:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - name: Get Composer Cache Directory
         id: composer-cache
         run: |
@@ -20,7 +21,6 @@ jobs:
           key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
           restore-keys: |
             ${{ runner.os }}-composer-
-      - uses: actions/checkout@v2
       - name: Laravel Setup
         run: |
           cp .env.ci .env
@@ -38,4 +38,4 @@ jobs:
       - uses: codecov/codecov-action@v1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          file: ./codecov.yml
+          file: codecov.yml
