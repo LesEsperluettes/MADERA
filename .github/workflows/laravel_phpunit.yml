@@ -32,7 +32,7 @@ jobs:
           php artisan migrate
           vendor/phpunit/phpunit/phpunit
       - name: Running code coverage
-        run: |
-          bash <(curl -s https://codecov.io/bash)
         env:
           CODECOV_TOKEN: {{ secrets.CODECOV_TOKEN }}
+        run: |
+          bash <(curl -s https://codecov.io/bash)
