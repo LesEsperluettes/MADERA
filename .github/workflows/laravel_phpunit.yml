@@ -1,0 +1,34 @@
+on:
+  push:
+    branches: [ master, develop ]
+  pull_request:
+    branches: [ master, develop ]
+
+jobs:
+  laravel-test-withdb:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Composer Cache Directory
+        id: composer-cache
+        run: |
+          echo "::set-output name=dir::$(composer config cache-files-dir)"
+      - uses: actions/cache@v2
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-composer-
+      - uses: actions/checkout@v2
+      - name: Laravel Setup
+        run: |
+          cp .env.ci .env
+          composer install -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
+          php artisan key:generate
+          chmod -R 777 storage bootstrap/cache
+      - name: Execute tests (Unit and Feature tests) via PHPUnit
+        run: |
+          php artisan migrate
+          vendor/phpunit/phpunit/phpunit
+      - name: Running code coverage
+        run: |
+          bash <(curl -s https://codecov.io/bash)
