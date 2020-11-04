@@ -1,4 +1,4 @@
-name: Laravel validation workflow
+name: CI Testing
 
 on:
   push:
