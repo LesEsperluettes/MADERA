@@ -28,6 +28,9 @@ jobs:
           php artisan key:generate
           chmod -R 777 storage bootstrap/cache
       - name: Execute tests (Unit and Feature tests) via PHPUnit
+        env:
+          DB_CONNECTION: sqlite
+          DB_DATABASE: ':memory:'
         run: |
           php artisan migrate
           vendor/phpunit/phpunit/phpunit --coverage-clover coverage.xml
