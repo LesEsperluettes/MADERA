@@ -7,7 +7,7 @@ on:
     branches: [ master, develop, feature/ci ]
 
 jobs:
-  laravel-test-withdb:
+  validation-test:
     runs-on: ubuntu-latest
     steps:
       - name: Get Composer Cache Directory
@@ -31,4 +31,11 @@ jobs:
         run: |
           php artisan migrate
           vendor/phpunit/phpunit/phpunit
+  validation-coverage:
+    needs: validation-test
+    runs-on: ubuntu-latest
+    steps:
       - uses: codecov/codecov-action@v1
+          with:
+            token: ${{ secrets.CODECOV_TOKEN }}
+            file: ./codecov.yml
