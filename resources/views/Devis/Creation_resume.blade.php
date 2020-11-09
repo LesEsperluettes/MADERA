@@ -105,7 +105,7 @@
                 </div>
             </div>
             <a role="button" class="btn btn-outline-danger" href="/devis3">Précédant</a>
-            <a class="btn btn-primary float-right" href="/home">Suivant</a>
+            <a class="btn btn-primary float-right" href="/devis_success">Suivant</a>
         </div>
     </div>
 
