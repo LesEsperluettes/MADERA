@@ -22,7 +22,7 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto"></ul>
-                <a role="button" class="btn btn-primary">Se connecter</a>
+                <a role="button" class="btn btn-primary" href="/login">Se connecter</a>
             </div>
         </nav>
     </header>
