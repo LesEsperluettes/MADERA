@@ -28,6 +28,7 @@ class Handler extends ExceptionHandler
     /**
      * Register the exception handling callbacks for the application.
      *
+     * @codeCoverageIgnore
      * @return void
      */
     public function register()
