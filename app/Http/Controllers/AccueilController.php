@@ -10,4 +10,9 @@ class AccueilController extends Controller
     {
         return view('accueil');
     }
+
+    public function indexBE()
+    {
+        return view('accueil-BE');
+    }
 }
