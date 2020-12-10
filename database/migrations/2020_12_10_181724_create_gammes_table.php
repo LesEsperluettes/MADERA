@@ -41,7 +41,7 @@ class CreateGammesTable extends Migration
      */
     public function down()
     {
-        Schema::table('composants',function (Blueprint $table) {
+        Schema::table('gammes',function (Blueprint $table) {
             $table->dropForeign("isolant_id");
             $table->dropForeign("ouverture_id");
             $table->dropForeign("qualite_huisserie_id");
