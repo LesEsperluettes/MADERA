@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Facturations extends Model
 {
-    use HasFactory;
+    public function devis(){
+        return $this->hasOne(Devis::class);
+    }
 }

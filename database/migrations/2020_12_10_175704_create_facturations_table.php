@@ -18,9 +18,10 @@ class CreateFacturationsTable extends Migration
             $table->timestamps();
             $table->float("pourcentage_demande");
             $table->float("pourcentage_paye");
-        });
 
-        // TODO add Devis link
+            $table->unsignedBigInteger("devis_id");
+            $table->foreign("devis_id")->references("id")->on("devis");
+        });
     }
 
     /**
@@ -30,6 +31,9 @@ class CreateFacturationsTable extends Migration
      */
     public function down()
     {
+        Schema::table('facturations',function (Blueprint $table) {
+            $table->dropForeign("devis_id");
+        });
         Schema::dropIfExists('facturations');
     }
 }
