@@ -105,8 +105,26 @@
                 </div>
             </div>
             <a role="button" class="btn btn-outline-danger" href="/devis3">Précédant</a>
-            <a class="btn btn-primary float-right" href="/devis_success">Suivant</a>
+            <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#confirmationModal">Suivant</a>
         </div>
     </div>
+
+    <!-- Modal confirmation-->
+<div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="confirmationModalLabel">Merci de confirmer la création du devis</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Non, revenir en arrière</button>
+            <a role="button" class="btn btn-primary" href="/devis_success">Oui, je valide ce devis</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
 @endsection

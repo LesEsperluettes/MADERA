@@ -63,7 +63,7 @@
 
     <!-- ModalClientExistant -->
     <div class="modal fade" id="modalClientExistant" tabindex="-1" aria-labelledby="modalClientExistantTitre" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="modalClientExistantTitre">Sélection du client</h5>
@@ -89,7 +89,7 @@
       
       <!-- ModalClientExistant -->
       <div class="modal fade" id="modalNouveauClient" tabindex="-1" aria-labelledby="modalNouveauClientTitre" aria-hidden="true">
-          <div class="modal-dialog">
+          <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="modalNouveauClientTitre">Création d'un nouveau client</h5>
