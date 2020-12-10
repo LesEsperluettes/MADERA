@@ -18,7 +18,9 @@ class CreateSectionsTable extends Migration
             $table->timestamps();
 
             $table->unsignedBigInteger("type_section_id");
+            $table->unsignedBigInteger("module_id");
             $table->foreign("type_section_id")->references("id")->on("type_sections");
+            $table->foreign("module_id")->references("id")->on("modules");
         });
     }
 
@@ -31,6 +33,7 @@ class CreateSectionsTable extends Migration
     {
         Schema::table('sections',function (Blueprint $table) {
             $table->dropForeign("type_section_id");
+            $table->dropForeign("module_id");
         });
         Schema::dropIfExists('sections');
     }
