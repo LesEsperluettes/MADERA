@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('css')
+<link href="{{ asset('css/devis4.css') }}" rel="stylesheet">
 @endsection
 
 @section('breadcrumb')
@@ -92,13 +93,13 @@
                     </div>
                 </div>
                 <div class="col-sm">
-                    <div class="row justify-content-center">
-                        <div class="col-sm m-3" style="background-color: white;">
+                    <div class="row justify-content-center div_prix">
+                        <div class="col-sm m-2 prix" style="background-color: white;">
                             <h1>200 000 €</h1>
                         </div>
                     </div>
-                    <div class="row justify-content-center">
-                        <div class="col-sm m-3" style="background-color: white;">
+                    <div class="row justify-content-center div_comment">
+                        <div class="col-sm m-2" style="background-color: white;">
                             <h1>Commentaires...</h1>
                         </div>
                     </div>

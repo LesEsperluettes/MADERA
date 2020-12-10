@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('css')
+<link href="{{ asset('css/devis3.css') }}" rel="stylesheet">
 @endsection
 
 @section('breadcrumb')
@@ -24,12 +25,18 @@
 
     <div style="background-color: rgb(218, 235, 249);" class="m-3">
         <div class="p-3">
-            <h1 class="text-center">Si vous voulez éditer votre modèle</h1>
-            <a role="button" class="btn btn-primary" href="#">Cliquer ici pour ouvrir l'éditeur</a>
-            <h2 class="text-center">Sinon vous pouvez continuer</h2>
+            <div class="open_editor">
+                <h1 class="editor_title">Si vous voulez éditer votre modèle</h1>
+                <a role="button" class="btn btn-primary btn_editor" href="#">Cliquer ici pour ouvrir l'éditeur</a>
+            </div>
 
-            <a role="button" class="btn btn-outline-danger" href="/devis2">Précédant</a>
-            <a class="btn btn-primary float-right" href="/devis4">Suivant</a>
+            <div class="buttons">
+                <a role="button" class="btn btn-outline-danger" href="/devis2">Précédant</a>
+                <div class="btn_next">
+                    <h4 class="text-center">Sinon vous pouvez continuer --></h4>
+                    <a class="btn btn-primary float-right" href="/devis4">Suivant</a>
+                </div>
+            </div>
         </div>
     </div>
 
