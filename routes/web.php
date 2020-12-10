@@ -19,7 +19,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\AccueilCommercialController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\AccueilController::class, 'index'])->name('home');
 /* TODO: If user=BE; then route::get->name('home-be');
 else if user=CO; then ('home-co')
 */
