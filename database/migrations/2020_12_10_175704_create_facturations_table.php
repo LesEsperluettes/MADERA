@@ -16,8 +16,8 @@ class CreateFacturationsTable extends Migration
         Schema::create('facturations', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->float("pourcentageDemande");
-            $table->float("pourcentagePaye");
+            $table->float("pourcentage_demande");
+            $table->float("pourcentage_paye");
         });
 
         // TODO add Devis link

@@ -18,7 +18,7 @@ class CreateFournisseursTable extends Migration
             $table->timestamps();
             $table->string("mail");
             $table->string("adresse");
-            $table->string("numeroTelephone");
+            $table->string("numero_telephone");
         });
     }
 

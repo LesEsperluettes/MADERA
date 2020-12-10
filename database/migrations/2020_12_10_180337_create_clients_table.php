@@ -20,7 +20,7 @@ class CreateClientsTable extends Migration
             $table->string("nom");
             $table->string("mail");
             $table->string("adresse");
-            $table->string("numeroTelephone");
+            $table->string("numero_telephone");
         });
     }
 
