@@ -10,4 +10,9 @@ class AccueilCommercialController extends Controller
     {
         return view('accueil_commercial');
     }
+
+    public function indexBE()
+    {
+        return view('accueil-BE');
+    }
 }
