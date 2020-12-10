@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class SectionGoujonsFixation extends Model
+class TypeSectionParameter extends Model
 {
     use HasFactory;
 }
