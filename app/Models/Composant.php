@@ -9,10 +9,10 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Composant extends Model
 {
     public function fournisseurs() {
-        return $this->hasMany(Fournisseurs::class);
+        return $this->hasOne(Fournisseurs::class);
     }
 
     public function familleComposants(){
-        return $this->hasMany(FamilleComposants::class);
+        return $this->hasOne(FamilleComposants::class);
     }
 }
