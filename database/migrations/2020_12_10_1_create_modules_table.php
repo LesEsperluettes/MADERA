@@ -22,10 +22,8 @@ class CreateModulesTable extends Migration
 
             $table->unsignedBigInteger("gamme_id");
             $table->unsignedBigInteger("remplissage_id");
-            $table->unsignedBigInteger("devis_id");
             $table->foreign("gamme_id")->references("id")->on("gammes");
             $table->foreign("remplissage_id")->references("id")->on("remplissages");
-            $table->foreign("devis_id")->references("id")->on("devis");
         });
     }
 
@@ -39,7 +37,6 @@ class CreateModulesTable extends Migration
         Schema::table('modules',function (Blueprint $table) {
             $table->dropForeign("gamme_id");
             $table->dropForeign("remplissage_id");
-            $table->dropForeign("devis_id");
         });
         Schema::dropIfExists('modules');
     }

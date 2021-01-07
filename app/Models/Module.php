@@ -16,6 +16,6 @@ class Module extends Model
     }
 
     public function devis(){
-        return $this->hasOne(Devis::class);
+        return $this->belongsToMany(Devis::class,'modules_devis');
     }
 }
