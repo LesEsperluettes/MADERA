@@ -5,14 +5,34 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Composant extends Model
 {
-    public function fournisseurs() {
+    /**
+     * Retourne le fournisseur de ce composant
+     * @return HasOne
+     */
+    public function fournisseur(): HasOne
+    {
         return $this->hasOne(Fournisseurs::class);
     }
 
-    public function familleComposants(){
+    /**
+     * Retourne la famille de ce composant
+     * @return HasOne
+     */
+    public function familleComposant(): HasOne
+    {
         return $this->hasOne(FamilleComposants::class);
+    }
+
+    /**
+     * Retournes les gammes qui utilisent ce composant
+     * @return HasMany
+     */
+    public function gammes(): HasMany
+    {
+        return $this->hasMany(Gamme::class);
     }
 }

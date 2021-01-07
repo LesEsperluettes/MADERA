@@ -7,5 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class FamilleComposants extends Model
 {
-    use HasFactory;
+    /**
+     * Return every composants in this famille
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function composants(){
+        return $this->hasMany(Composant::class);
+    }
 }
