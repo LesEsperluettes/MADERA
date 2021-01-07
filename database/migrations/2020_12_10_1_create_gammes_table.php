@@ -19,14 +19,14 @@ class CreateGammesTable extends Migration
             $table->string("nom");
 
             $table->unsignedBigInteger("isolant_id");
-            $table->unsignedBigInteger("ouverture_id");
+            $table->unsignedBigInteger("couverture_id");
             $table->unsignedBigInteger("qualite_huisserie_id");
             $table->unsignedBigInteger("ossature_bois_id");
             $table->unsignedBigInteger("finition_id");
             $table->unsignedBigInteger("composant_id");
 
             $table->foreign("isolant_id")->references("id")->on("isolants");
-            $table->foreign("ouverture_id")->references("id")->on("ouvertures");
+            $table->foreign("couverture_id")->references("id")->on("couvertures");
             $table->foreign("qualite_huisserie_id")->references("id")->on("qualite_huisseries");
             $table->foreign("ossature_bois_id")->references("id")->on("ossature_bois");
             $table->foreign("finition_id")->references("id")->on("finitions");
@@ -43,7 +43,7 @@ class CreateGammesTable extends Migration
     {
         Schema::table('gammes',function (Blueprint $table) {
             $table->dropForeign("isolant_id");
-            $table->dropForeign("ouverture_id");
+            $table->dropForeign("couverture_id");
             $table->dropForeign("qualite_huisserie_id");
             $table->dropForeign("ossature_bois_id");
             $table->dropForeign("finition_id");

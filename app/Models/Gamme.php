@@ -24,7 +24,7 @@ class Gamme extends Model
      */
     public function ouverture(): HasOne
     {
-        return $this->hasOne(Ouverture::class);
+        return $this->hasOne(Couverture::class);
     }
 
     /**

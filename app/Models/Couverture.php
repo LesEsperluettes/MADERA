@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Ouverture extends Model
+class Couverture extends Model
 {
     /**
      * Retourne les gammes qui utilisent cette ouverture
