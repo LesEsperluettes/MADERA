@@ -126,3 +126,7 @@ fabric.properties
 # Ignore all local history of files
 .history
 public/js/app.js
+
+.phpstorm.meta.php
+
+_ide_helper.php
