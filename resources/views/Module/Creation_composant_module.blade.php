@@ -35,7 +35,6 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-4">
-                            <div class="p-3 mb-2 bg-light text-dark">
                                 <!-- Lisse -->
                                 <ul class="list-group">
                                     <li id="listLisseId" class="list-group-item">
@@ -44,6 +43,7 @@
                                     </li>
                                 <!-- Contreforts -->
                                     <li id="listContreFortId" class="list-group-item">
+
                                         <a class="h4" onclick="displayContrefortsContent();" style="cursor:pointer" > Contreforts &raquo</a>
                                     </li>
                                 <!-- Support de sol -->
@@ -59,7 +59,7 @@
                                         <a class="h4" onclick="displaySabotsContent();" style="cursor:pointer"> Sabots &raquo</a>
                                     </li>
                                 <ul>
-                            </div>
+
                         </div>
                         <div class="col-sm-8">
                             <div class="p-3 mb-2 bg-light text-dark" style="text-align:center">
