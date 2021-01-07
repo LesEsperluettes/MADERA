@@ -4,14 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Isolant extends Model
 {
     /**
-     * Return every Gammes who use this Isolant
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * Retourne les gammes qui utilisent cet isolant
+     * @return HasMany
      */
-    public function gammes(){
+    public function gammes(): HasMany
+    {
         return $this->hasMany(Gamme::class);
     }
 }

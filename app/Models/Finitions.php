@@ -4,14 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Finitions extends Model
 {
     /**
-     * Return every Gammes who use this Finition
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * Retourne les gammes possèdant cette finition
+     * @return HasMany
      */
-    public function gammes(){
+    public function gammes(): HasMany
+    {
         return $this->hasMany(Gamme::class);
     }
 }

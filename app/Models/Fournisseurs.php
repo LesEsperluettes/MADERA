@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Fournisseurs extends Model
 {
     /**
-     * Return every composants of this fournisseur
+     * Retourne les composants de ce fournisseur
      * @return HasMany
      */
     public function composants(): HasMany

@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class TypeSectionParameter extends Model
 {
-    use HasFactory;
+
 }

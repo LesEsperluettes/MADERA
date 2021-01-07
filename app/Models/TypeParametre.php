@@ -4,25 +4,26 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class TypeParametre extends Model
 {
     /**
-     * Return every SectionParametres corresponding to this TypeParametre
+     * Retourne les sections qui utilise ce type de paramètre
      * @return HasMany
      */
-    public function sectionParametres(): HasMany
+    public function sections(): HasMany
     {
-        return $this->hasMany(SectionParametre::class);
+        return $this->belongsToMany(Section::class);
     }
 
     /**
-     * Return every parametres who uses this TypeParametre
-     * @return HasMany
+     * Retourne les types de sections qui utilisent ce parametre
+     * @return BelongsToMany
      */
-    public function parametres(): HasMany
+    public function typeSections(): BelongsToMany
     {
-        return $this->hasMany(TypeSectionParameter::class);
+        return $this->belongsToMany(TypeSection::class);
     }
 }

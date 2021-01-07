@@ -4,30 +4,71 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Gamme extends Model
 {
-    public function isolant(){
+    /**
+     * Retourne l'insolant de cette gamme
+     * @return HasOne
+     */
+    public function isolant(): HasOne
+    {
         return $this->hasOne(Isolant::class);
     }
 
-    public function ouverture(){
+    /**
+     * Retourne l'ouverture de cette gamme
+     * @return HasOne
+     */
+    public function ouverture(): HasOne
+    {
         return $this->hasOne(Ouverture::class);
     }
 
-    public function qualiteHuisserie(){
+    /**
+     * Retourne la qualité d'huisserie de cette gamme
+     * @return HasOne
+     */
+    public function qualiteHuisserie(): HasOne
+    {
         return $this->hasOne(QualiteHuisserie::class);
     }
 
-    public function ossatureBois(){
+    /**
+     * Retourne l'ossature bois de cette gamme
+     * @return HasOne
+     */
+    public function ossatureBois(): HasOne
+    {
         return $this->hasOne(OssatureBois::class);
     }
 
-    public function finition(){
+    /**
+     * Retourne la finition de cette gamme
+     * @return HasOne
+     */
+    public function finition(): HasOne
+    {
         return $this->hasOne(Finitions::class);
     }
 
-    public function composant(){
+    /**
+     * Retourne le composant de cette gamme
+     * @return HasOne
+     */
+    public function composant(): HasOne
+    {
         return $this->hasOne(Composant::class);
+    }
+
+    /**
+     * Retourne les modules qui utilisent cette gamme
+     * @return HasMany
+     */
+    public function modules(): HasMany
+    {
+        return $this->hasMany(Module::class);
     }
 }
