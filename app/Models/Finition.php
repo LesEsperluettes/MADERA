@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Finitions extends Model
+class Finition extends Model
 {
     /**
      * Retourne les gammes possèdant cette finition

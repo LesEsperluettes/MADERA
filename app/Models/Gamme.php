@@ -51,7 +51,7 @@ class Gamme extends Model
      */
     public function finition(): HasOne
     {
-        return $this->hasOne(Finitions::class);
+        return $this->hasOne(Finition::class);
     }
 
     /**

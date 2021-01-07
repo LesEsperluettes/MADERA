@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Client extends Model
 {
+    use HasFactory;
+
     /**
      * Retourne tous les devis de ce client
      * @return HasMany

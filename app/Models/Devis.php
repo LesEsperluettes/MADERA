@@ -25,7 +25,7 @@ class Devis extends Model
      */
     public function facturations(): HasMany
     {
-        return $this->hasMany(Facturations::class);
+        return $this->hasMany(Facturation::class);
     }
 
     /**

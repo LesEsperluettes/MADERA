@@ -5,18 +5,17 @@ namespace Database\Seeders;
 use App\Models\Fournisseur;
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+class FournisseurSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Run the database seeds.
      *
      * @return void
      */
     public function run()
     {
-        $this->call([
-           ClientSeeder::class,
-            FournisseurSeeder::class
-        ]);
+        Fournisseur::factory()
+            ->times(10)
+            ->create();
     }
 }

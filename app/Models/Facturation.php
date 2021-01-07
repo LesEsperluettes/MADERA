@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
-class Facturations extends Model
+class Facturation extends Model
 {
     /**
      * Retourne le devis de cette facturation

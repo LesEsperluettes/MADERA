@@ -6,8 +6,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Fournisseurs extends Model
+class Fournisseur extends Model
 {
+    use HasFactory;
+
     /**
      * Retourne les composants de ce fournisseur
      * @return HasMany

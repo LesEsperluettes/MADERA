@@ -15,7 +15,7 @@ class Composant extends Model
      */
     public function fournisseur(): HasOne
     {
-        return $this->hasOne(Fournisseurs::class);
+        return $this->hasOne(Fournisseur::class);
     }
 
     /**
