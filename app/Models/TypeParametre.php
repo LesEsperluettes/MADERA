@@ -15,7 +15,7 @@ class TypeParametre extends Model
      */
     public function sections(): HasMany
     {
-        return $this->belongsToMany(Section::class);
+        return $this->hasMany(Section::class);
     }
 
     /**

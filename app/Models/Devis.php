@@ -34,6 +34,6 @@ class Devis extends Model
      */
     public function modules(): BelongsToMany
     {
-        return $this->belongsToMany(Modules::class,'modules_devis');
+        return $this->belongsToMany(Module::class,'modules_devis');
     }
 }
