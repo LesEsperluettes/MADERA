@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCouverturesTable extends Migration
+class CreateTypeSectionTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateCouverturesTable extends Migration
      */
     public function up()
     {
-        Schema::create('couvertures', function (Blueprint $table) {
+        Schema::create('type_section', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->string("type");
@@ -27,6 +27,6 @@ class CreateCouverturesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('couvertures');
+        Schema::dropIfExists('type_section');
     }
 }

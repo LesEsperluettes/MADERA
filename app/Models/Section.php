@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
@@ -19,20 +20,11 @@ class Section extends Model
     }
 
     /**
-     * Retourne les paramètres de cette section
-     * @return HasMany
+     * Retourne les modules qui utilisent cette section
+     * @return BelongsToMany
      */
-    public function parametres(): HasMany
+    public function modules(): BelongsToMany
     {
-        return $this->hasMany(SectionParametre::class);
-    }
-
-    /**
-     * Retourne le module qui utilise cette section
-     * @return HasOne
-     */
-    public function module(): HasOne
-    {
-        return $this->hasOne(Module::class);
+        return $this->belongsToMany(Module::class);
     }
 }

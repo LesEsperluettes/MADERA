@@ -20,11 +20,11 @@ class Module extends Model
 
     /**
      * Retourne le remplissage de ce module
-     * @return HasOne
+     * @return BelongsToMany
      */
-    public function remplissage(): HasOne
+    public function remplissage(): BelongsToMany
     {
-        return $this->hasOne(Remplissage::class);
+        return $this->belongsToMany(Remplissage::class);
     }
 
     /**
@@ -33,6 +33,24 @@ class Module extends Model
      */
     public function devis(): BelongsToMany
     {
-        return $this->belongsToMany(Devis::class,'modules_devis');
+        return $this->belongsToMany(Devis::class);
+    }
+
+    /**
+     * Retourne les montants utilisés pour ce module
+     * @return BelongsToMany
+     */
+    public function montants(): BelongsToMany
+    {
+        return $this->belongsToMany(Montant::class);
+    }
+
+    /**
+     * Retourne les sections utilisés pour ce module
+     * @return BelongsToMany
+     */
+    public function sections(): BelongsToMany
+    {
+        return $this->belongsToMany(Section::class);
     }
 }

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
@@ -24,15 +25,15 @@ class Composant extends Model
      */
     public function familleComposant(): HasOne
     {
-        return $this->hasOne(FamilleComposants::class);
+        return $this->hasOne(FamilleComposant::class);
     }
 
     /**
-     * Retournes les gammes qui utilisent ce composant
-     * @return HasMany
+     * Retourne les modules qui utilisent ce composant
+     * @return BelongsToMany
      */
-    public function gammes(): HasMany
+    public function modules(): BelongsToMany
     {
-        return $this->hasMany(Gamme::class);
+        return $this->belongsToMany(Module::class);
     }
 }

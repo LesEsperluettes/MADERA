@@ -5,18 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class TypeSection extends Model
+class Montant extends Model
 {
     /**
-     * Retourne les paramètres de type de sections
+     * Retourne les modules qui utilise ce montant
      * @return BelongsToMany
      */
-    public function parametres(): BelongsToMany
+    public function modules(): BelongsToMany
     {
-        return $this->belongsToMany(TypeParameter::class);
+        return $this->belongsToMany(Module::class);
     }
-
-
 }

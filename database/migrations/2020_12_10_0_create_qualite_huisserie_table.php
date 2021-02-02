@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTypeParametresTable extends Migration
+class CreateQualiteHuisserieTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateTypeParametresTable extends Migration
      */
     public function up()
     {
-        Schema::create('type_parametres', function (Blueprint $table) {
+        Schema::create('qualite_huisserie', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->string("type");
@@ -27,6 +27,6 @@ class CreateTypeParametresTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('type_parametres');
+        Schema::dropIfExists('qualite_huisserie');
     }
 }

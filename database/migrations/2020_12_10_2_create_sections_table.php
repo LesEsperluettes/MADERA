@@ -13,14 +13,12 @@ class CreateSectionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('sections', function (Blueprint $table) {
+        Schema::create('section', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
 
-            $table->unsignedBigInteger("type_section_id");
-            $table->unsignedBigInteger("module_id");
-            $table->foreign("type_section_id")->references("id")->on("type_sections");
-            $table->foreign("module_id")->references("id")->on("modules");
+            $table->bigInteger('id_type_section')->unsigned()->index();
+            $table->foreign('id_type_section')->references("id")->on("type_section");
         });
     }
 
@@ -31,10 +29,9 @@ class CreateSectionsTable extends Migration
      */
     public function down()
     {
-        Schema::table('sections',function (Blueprint $table) {
-            $table->dropForeign("type_section_id");
-            $table->dropForeign("module_id");
+        Schema::table('section',function (Blueprint $table) {
+            $table->dropForeign("id_type_section");
         });
-        Schema::dropIfExists('sections');
+        Schema::dropIfExists('section');
     }
 }

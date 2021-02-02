@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRemplissagesTable extends Migration
+class CreateRemplissageTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateRemplissagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('remplissages', function (Blueprint $table) {
+        Schema::create('remplissage', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->string("nom");
@@ -28,6 +28,6 @@ class CreateRemplissagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('remplissages');
+        Schema::dropIfExists('remplissage');
     }
 }
