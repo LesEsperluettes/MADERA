@@ -14,10 +14,10 @@ class EnsureUserHasRole
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle(Request $request, Closure $next)
+    public function handle(Request $request, Closure $next, $role)
     {
-        if(!$request->user()){
-
+        if(!($request->user()->role() == $role)){
+            $next('/home');
         }
         return $next($request);
     }
