@@ -20,12 +20,9 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('logout',[\App\Http\Controllers\Auth\LoginController::class,'logout'])->name('logout');
 
-Route::get('/home', [App\Http\Controllers\AccueilController::class, 'index'])->name('home');
-/* TODO: If user=BE; then route::get->name('home-be');
-else if user=CO; then ('home-co')
-*/
-Route::get('/home-be', [App\Http\Controllers\AccueilController::class, 'indexBE'])->name('home-be');
-Route::get('/home', [App\Http\Controllers\AccueilController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\AccueilController::class, 'index'])->name('home')->middleware('auth');
+Route::get('/home-be', [App\Http\Controllers\AccueilController::class, 'indexBE'])->name('home.be')->middleware('role:BE');
+Route::get('/home-co', [App\Http\Controllers\AccueilController::class, 'indexCO'])->name('home.co')->middleware('role:CO');
 
 Route::get('/contacts', [App\Http\Controllers\ContactController::class, 'index'])->name('contacts');
 

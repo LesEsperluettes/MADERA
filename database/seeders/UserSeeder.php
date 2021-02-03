@@ -18,7 +18,7 @@ class UserSeeder extends Seeder
     {
         $admin_role = Role::find(1);
         $be_role = Role::find(2);
-        $co_role = Role::find(2);
+        $co_role = Role::find(3);
 
         // Create admin user account
         $admin = new User();
