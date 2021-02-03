@@ -1,0 +1,14 @@
+.prix{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.div_prix{
+    height: 40%;
+}
+
+.div_comment{
+    height: 60%;
+}

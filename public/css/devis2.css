@@ -1,0 +1,8 @@
+.colonne{
+    width:30%;
+}
+
+.colonnes{
+    display: flex;
+    justify-content: space-between;
+}

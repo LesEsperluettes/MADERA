@@ -1,0 +1,7 @@
+.end_form{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    height: 35%;
+}

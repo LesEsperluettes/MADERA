@@ -16,7 +16,7 @@
     <h1>Contacts</h1>
 
     <div class="row">
-        <div class="col-sm panel p-3 mr-2 rounded">
+        <div class="col-sm panel p-3 mr-2 rounded clients">
             <div class="row row-cols-1">
                 <div class="col m-1">
                     <div class="card">
@@ -70,7 +70,27 @@
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
-                                    <h5 class="card-title">Client n°2 (Jacques CHIRAC)</h5>
+                                    <h5 class="card-title">Client n°3 (Yanick NOAH)</h5>
+                                    <p class="card-text">yanick.noah@gmail.com</p>
+                                    <a href="#" class="btn btn-outline-primary">Modifier</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col m-1">
+                    <div class="card">
+                        <div class="row no-gutters">
+                            <div class="col-md-4">
+                                <svg class="bd-placeholder-img card-img"
+                                    xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"
+                                    focusable="false" role="img" >
+                                    <rect width="100%" height="100%" fill="#777"></rect>
+                                </svg>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">Client n°2 (Jacques CHIRAC) (RIP)</h5>
                                     <p class="card-text">jacques.chirac@gmail.com</p>
                                     <a href="#" class="btn btn-outline-primary">Modifier</a>
                                 </div>
@@ -82,7 +102,7 @@
         </div>
 
         <div class="col-sm panel p-3 ml-2 rounded">
-            <div class="nom-client" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <div class="nom_client">
                 <svg class="bd-placeholder-img rounded-circle" width="100" height="100" xmlns="http://www.w3.org/2000/svg"
                     preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140">
                     <rect width="100%" height="100%" fill="#777"></rect>
