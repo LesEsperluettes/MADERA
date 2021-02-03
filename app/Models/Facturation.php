@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Facturation extends Model
@@ -12,10 +13,10 @@ class Facturation extends Model
 
     /**
      * Retourne le devis de cette facturation
-     * @return HasOne
+     * @return BelongsTo
      */
-    public function devis(): HasOne
+    public function devis(): BelongsTo
     {
-        return $this->hasOne(Devis::class);
+        return $this->belongsTo(Devis::class);
     }
 }

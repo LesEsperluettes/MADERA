@@ -19,8 +19,8 @@ class CreateDevisTable extends Migration
             $table->string("nom_projet");
             $table->string("reference_projet");
 
-            $table->bigInteger('id_client')->unsigned()->index();
-            $table->foreign('id_client')->references("id")->on("client");
+            $table->bigInteger('client_id')->unsigned()->index();
+            $table->foreign('client_id')->references("id")->on("client");
         });
     }
 
@@ -32,7 +32,7 @@ class CreateDevisTable extends Migration
     public function down()
     {
         Schema::table('devis',function (Blueprint $table) {
-            $table->dropForeign("id_client");
+            $table->dropForeign("client_id");
         });
         Schema::dropIfExists('devis');
     }

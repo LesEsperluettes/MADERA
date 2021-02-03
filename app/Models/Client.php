@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Client extends Model
@@ -13,10 +14,10 @@ class Client extends Model
 
     /**
      * Retourne tous les devis de ce client
-     * @return HasMany
+     * @return BelongsToMany
      */
-    public function devis(): HasMany
+    public function devis(): BelongsToMany
     {
-        return $this->hasMany(Devis::class);
+        return $this->belongsToMany(Devis::class);
     }
 }

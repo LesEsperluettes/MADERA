@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -14,20 +15,20 @@ class Devis extends Model
 
     /**
      * Retourne le client correspondant à ce devis
-     * @return HasOne
+     * @return BelongsTo
      */
-    public function client(): HasOne
+    public function client(): BelongsTo
     {
-        return $this->hasOne(Client::class);
+        return $this->belongsTo(Client::class);
     }
 
     /**
      * Retourne les facturations de ce devis
-     * @return HasMany
+     * @return BelongsToMany
      */
-    public function facturations(): HasMany
+    public function facturations(): BelongsToMany
     {
-        return $this->hasMany(Facturation::class);
+        return $this->belongsToMany(Facturation::class);
     }
 
     /**

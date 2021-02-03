@@ -16,7 +16,6 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            ClientSeeder::class,
             // Gammes
             CouvertureSeeder::class,
             FinitionSeeder::class,
@@ -27,7 +26,10 @@ class DatabaseSeeder extends Seeder
             // Composants
             FamilleComposantSeeder::class,
             FournisseurSeeder::class,
-            ComposantSeeder::class
+            ComposantSeeder::class,
+            // Devis
+            ClientSeeder::class,
+            DevisSeeder::class
         ]);
     }
 }

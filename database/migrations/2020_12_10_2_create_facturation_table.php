@@ -19,8 +19,8 @@ class CreateFacturationTable extends Migration
             $table->float("total_demande");
             $table->float("total_paye");
 
-            $table->bigInteger('id_devis')->unsigned()->index();
-            $table->foreign('id_devis')->references("id")->on("devis");
+            $table->bigInteger('devis_id')->unsigned()->index();
+            $table->foreign('devis_id')->references("id")->on("devis");
         });
     }
 
@@ -32,7 +32,7 @@ class CreateFacturationTable extends Migration
     public function down()
     {
         Schema::table('facturation',function (Blueprint $table) {
-            $table->dropForeign("id_devis");
+            $table->dropForeign("devis_id");
         });
         Schema::dropIfExists('facturation');
     }
