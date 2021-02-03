@@ -14,12 +14,12 @@ class CreateModuleRemplissageTable extends Migration
     public function up()
     {
         Schema::create('module_remplissage', function (Blueprint $table) {
-            $table->bigInteger('id_module')->unsigned()->index();
-            $table->bigInteger('id_remplissage')->unsigned()->index();
-            $table->primary(['id_module','id_remplissage']);
+            $table->bigInteger('module_id')->unsigned()->index();
+            $table->bigInteger('remplissage_id')->unsigned()->index();
+            $table->primary(['module_id','remplissage_id']);
 
-            $table->foreign('id_module')->references('id')->on('module')->onDelete('cascade');
-            $table->foreign('id_remplissage')->references('id')->on('remplissage')->onDelete('cascade');
+            $table->foreign('module_id')->references('id')->on('module')->onDelete('cascade');
+            $table->foreign('remplissage_id')->references('id')->on('remplissage')->onDelete('cascade');
         });
     }
 

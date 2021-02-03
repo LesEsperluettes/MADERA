@@ -14,12 +14,12 @@ class CreateComposantModuleTable extends Migration
     public function up()
     {
         Schema::create('composant_module', function (Blueprint $table) {
-            $table->bigInteger('id_module')->unsigned()->index();
-            $table->bigInteger('id_composant')->unsigned()->index();
-            $table->primary(['id_module','id_composant']);
+            $table->bigInteger('module_id')->unsigned()->index();
+            $table->bigInteger('composant_id')->unsigned()->index();
+            $table->primary(['module_id','composant_id']);
 
-            $table->foreign('id_module')->references('id')->on('module')->onDelete('cascade');
-            $table->foreign('id_composant')->references('id')->on('composant')->onDelete('cascade');
+            $table->foreign('module_id')->references('id')->on('module')->onDelete('cascade');
+            $table->foreign('composant_id')->references('id')->on('composant')->onDelete('cascade');
         });
     }
 

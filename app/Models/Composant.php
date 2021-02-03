@@ -19,7 +19,7 @@ class Composant extends Model
      */
     public function fournisseur(): BelongsTo
     {
-        return $this->belongsTo(Fournisseur::class,'id_fournisseur');
+        return $this->belongsTo(Fournisseur::class);
     }
 
     /**
@@ -28,7 +28,7 @@ class Composant extends Model
      */
     public function familleComposant(): BelongsTo
     {
-        return $this->belongsTo(FamilleComposant::class,'id_famille_composant');
+        return $this->belongsTo(FamilleComposant::class);
     }
 
     /**

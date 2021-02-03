@@ -14,12 +14,12 @@ class CreateModuleDevisTable extends Migration
     public function up()
     {
         Schema::create('module_devis', function (Blueprint $table) {
-            $table->bigInteger('id_devis')->unsigned()->index();
-            $table->bigInteger('id_module')->unsigned()->index();
-            $table->primary(['id_devis','id_module']);
+            $table->bigInteger('devis_id')->unsigned()->index();
+            $table->bigInteger('module_id')->unsigned()->index();
+            $table->primary(['devis_id','module_id']);
 
-            $table->foreign('id_devis')->references('id')->on('devis')->onDelete('cascade');
-            $table->foreign('id_module')->references('id')->on('module')->onDelete('cascade');
+            $table->foreign('devis_id')->references('id')->on('devis')->onDelete('cascade');
+            $table->foreign('module_id')->references('id')->on('module')->onDelete('cascade');
         });
     }
 

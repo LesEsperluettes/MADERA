@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
@@ -18,7 +19,7 @@ class Gamme extends Model
      */
     public function isolant(): BelongsTo
     {
-        return $this->belongsTo(Isolant::class,'id_isolant');
+        return $this->belongsTo(Isolant::class);
     }
 
     /**
@@ -27,7 +28,7 @@ class Gamme extends Model
      */
     public function couverture(): BelongsTo
     {
-        return $this->belongsTo(Couverture::class,'id_couverture');
+        return $this->belongsTo(Couverture::class);
     }
 
     /**
@@ -36,7 +37,7 @@ class Gamme extends Model
      */
     public function qualiteHuisserie(): BelongsTo
     {
-        return $this->belongsTo(QualiteHuisserie::class,'id_qualite_huisserie');
+        return $this->belongsTo(QualiteHuisserie::class);
     }
 
     /**
@@ -45,7 +46,7 @@ class Gamme extends Model
      */
     public function ossatureBois(): BelongsTo
     {
-        return $this->belongsTo(OssatureBois::class,'id_ossature_bois');
+        return $this->belongsTo(OssatureBois::class);
     }
 
     /**
@@ -54,24 +55,15 @@ class Gamme extends Model
      */
     public function finition(): BelongsTo
     {
-        return $this->belongsTo(Finition::class,'id_finition');
-    }
-
-    /**
-     * Retourne le composant de cette gamme
-     * @return HasOne
-     */
-    public function composant(): HasOne
-    {
-        return $this->hasOne(Composant::class);
+        return $this->belongsTo(Finition::class);
     }
 
     /**
      * Retourne les modules qui utilisent cette gamme
-     * @return HasMany
+     * @return BelongsToMany
      */
-    public function modules(): HasMany
+    public function modules(): BelongsToMany
     {
-        return $this->hasMany(Module::class);
+        return $this->belongsToMany(Module::class);
     }
 }

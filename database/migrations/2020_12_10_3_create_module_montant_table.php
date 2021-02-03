@@ -14,12 +14,12 @@ class CreateModuleMontantTable extends Migration
     public function up()
     {
         Schema::create('module_montant', function (Blueprint $table) {
-            $table->bigInteger('id_module')->unsigned()->index();
-            $table->bigInteger('id_montant')->unsigned()->index();
-            $table->primary(['id_module','id_montant']);
+            $table->bigInteger('module_id')->unsigned()->index();
+            $table->bigInteger('montant_id')->unsigned()->index();
+            $table->primary(['module_id','montant_id']);
 
-            $table->foreign('id_module')->references('id')->on('module')->onDelete('cascade');
-            $table->foreign('id_montant')->references('id')->on('montant')->onDelete('cascade');
+            $table->foreign('module_id')->references('id')->on('module')->onDelete('cascade');
+            $table->foreign('montant_id')->references('id')->on('montant')->onDelete('cascade');
         });
     }
 

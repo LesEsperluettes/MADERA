@@ -18,10 +18,10 @@ class CreateComposantTable extends Migration
             $table->timestamps();
             $table->string("nom");
 
-            $table->bigInteger('id_famille_composant')->unsigned()->index();
-            $table->bigInteger('id_fournisseur')->unsigned()->index();
-            $table->foreign('id_famille_composant')->references("id")->on("famille_composant");
-            $table->foreign('id_fournisseur')->references("id")->on("fournisseur");
+            $table->bigInteger('famille_composant_id')->unsigned()->index();
+            $table->bigInteger('fournisseur_id')->unsigned()->index();
+            $table->foreign('famille_composant_id')->references("id")->on("famille_composant");
+            $table->foreign('fournisseur_id')->references("id")->on("fournisseur");
         });
     }
 
@@ -33,8 +33,8 @@ class CreateComposantTable extends Migration
     public function down()
     {
         Schema::table('composant',function (Blueprint $table) {
-            $table->dropForeign("id_famille_composant");
-            $table->dropForeign("id_fournisseur");
+            $table->dropForeign("famille_composant_id");
+            $table->dropForeign("fournisseur_id");
         });
         Schema::dropIfExists('composant');
     }

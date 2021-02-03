@@ -17,8 +17,8 @@ class CreateSectionsTable extends Migration
             $table->id();
             $table->timestamps();
 
-            $table->bigInteger('id_type_section')->unsigned()->index();
-            $table->foreign('id_type_section')->references("id")->on("type_section");
+            $table->bigInteger('type_section_id')->unsigned()->index();
+            $table->foreign('type_section_id')->references("id")->on("type_section");
         });
     }
 
@@ -30,7 +30,7 @@ class CreateSectionsTable extends Migration
     public function down()
     {
         Schema::table('section',function (Blueprint $table) {
-            $table->dropForeign("id_type_section");
+            $table->dropForeign("type_section_id");
         });
         Schema::dropIfExists('section');
     }

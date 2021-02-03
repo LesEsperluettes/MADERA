@@ -18,17 +18,17 @@ class CreateGammeTable extends Migration
             $table->timestamps();
             $table->string("nom");
 
-            $table->bigInteger('id_isolant')->unsigned()->index();
-            $table->bigInteger('id_couverture')->unsigned()->index();
-            $table->bigInteger('id_qualite_huisserie')->unsigned()->index();
-            $table->bigInteger('id_ossature_bois')->unsigned()->index();
-            $table->bigInteger('id_finition')->unsigned()->index();
+            $table->bigInteger('isolant_id')->unsigned()->index();
+            $table->bigInteger('couverture_id')->unsigned()->index();
+            $table->bigInteger('qualite_huisserie_id')->unsigned()->index();
+            $table->bigInteger('ossature_bois_id')->unsigned()->index();
+            $table->bigInteger('finition_id')->unsigned()->index();
 
-            $table->foreign('id_isolant')->references("id")->on("isolant");
-            $table->foreign('id_couverture')->references("id")->on("couverture");
-            $table->foreign('id_qualite_huisserie')->references("id")->on("qualite_huisserie");
-            $table->foreign('id_ossature_bois')->references("id")->on("ossature_bois");
-            $table->foreign('id_finition')->references("id")->on("finition");
+            $table->foreign('isolant_id')->references("id")->on("isolant");
+            $table->foreign('couverture_id')->references("id")->on("couverture");
+            $table->foreign('qualite_huisserie_id')->references("id")->on("qualite_huisserie");
+            $table->foreign('ossature_bois_id')->references("id")->on("ossature_bois");
+            $table->foreign('finition_id')->references("id")->on("finition");
         });
     }
 
@@ -40,11 +40,11 @@ class CreateGammeTable extends Migration
     public function down()
     {
         Schema::table('gamme',function (Blueprint $table) {
-            $table->dropForeign('id_isolant');
-            $table->dropForeign('id_couverture');
-            $table->dropForeign('id_qualite_huisserie');
-            $table->dropForeign('id_ossature_bois');
-            $table->dropForeign('id_finition');
+            $table->dropForeign('isolant_id');
+            $table->dropForeign('couverture_id');
+            $table->dropForeign('qualite_huisserie_id');
+            $table->dropForeign('ossature_bois_id');
+            $table->dropForeign('finition_id');
         });
         Schema::dropIfExists('gamme');
     }

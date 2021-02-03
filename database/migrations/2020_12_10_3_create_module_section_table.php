@@ -14,12 +14,12 @@ class CreateModuleSectionTable extends Migration
     public function up()
     {
         Schema::create('module_section', function (Blueprint $table) {
-            $table->bigInteger('id_module')->unsigned()->index();
-            $table->bigInteger('id_section')->unsigned()->index();
-            $table->primary(['id_module','id_section']);
+            $table->bigInteger('module_id')->unsigned()->index();
+            $table->bigInteger('section_id')->unsigned()->index();
+            $table->primary(['module_id','section_id']);
 
-            $table->foreign('id_module')->references('id')->on('module')->onDelete('cascade');
-            $table->foreign('id_section')->references('id')->on('section')->onDelete('cascade');
+            $table->foreign('module_id')->references('id')->on('module')->onDelete('cascade');
+            $table->foreign('section_id')->references('id')->on('section')->onDelete('cascade');
         });
     }
 
