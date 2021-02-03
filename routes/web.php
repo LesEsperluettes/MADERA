@@ -17,13 +17,24 @@ Route::get('/', function () {
     return view('index');
 });
 
+// ----------- Auth -----------
 Auth::routes();
 Route::get('logout',[\App\Http\Controllers\Auth\LoginController::class,'logout'])->name('logout');
 
-Route::get('/home', [App\Http\Controllers\AccueilController::class, 'index'])->name('home')->middleware('auth');
-Route::get('/home-be', [App\Http\Controllers\AccueilController::class, 'indexBE'])->name('home.be')->middleware('role:BE');
-Route::get('/home-co', [App\Http\Controllers\AccueilController::class, 'indexCO'])->name('home.co')->middleware('role:CO');
+// ----------- Homes -----------
+Route::get('/home', [App\Http\Controllers\AccueilController::class, 'index'])
+    ->name('home')
+    ->middleware('auth');
 
+Route::get('/home-be', [App\Http\Controllers\AccueilController::class, 'indexBE'])
+    ->name('home.be')
+    ->middleware('role:BE');
+
+Route::get('/home-co', [App\Http\Controllers\AccueilController::class, 'indexCO'])
+    ->name('home.co')
+    ->middleware('role:CO');
+
+// ----------- Others -----------
 Route::get('/contacts', [App\Http\Controllers\ContactController::class, 'index'])->name('contacts');
 
 Route::get('/devis1', [App\Http\Controllers\DevisController::class, 'index_etape1'])->name('devis_etape_1');
