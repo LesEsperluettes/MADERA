@@ -60,10 +60,10 @@ class Gamme extends Model
 
     /**
      * Retourne les modules qui utilisent cette gamme
-     * @return BelongsToMany
+     * @return HasMany
      */
-    public function modules(): BelongsToMany
+    public function modules(): HasMany
     {
-        return $this->belongsToMany(Module::class);
+        return $this->hasMany(Module::class);
     }
 }

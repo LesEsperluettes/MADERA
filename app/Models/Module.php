@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
@@ -13,11 +14,11 @@ class Module extends Model
 
     /**
      * Retourne la gamme de ce module
-     * @return HasOne
+     * @return BelongsTo
      */
-    public function gamme(): HasOne
+    public function gamme(): BelongsTo
     {
-        return $this->hasOne(Gamme::class);
+        return $this->belongsTo(Gamme::class);
     }
 
     /**
@@ -26,7 +27,7 @@ class Module extends Model
      */
     public function remplissage(): BelongsToMany
     {
-        return $this->belongsToMany(Remplissage::class);
+        return $this->belongsToMany(Remplissage::class,'module_remplissage');
     }
 
     /**
@@ -35,7 +36,7 @@ class Module extends Model
      */
     public function devis(): BelongsToMany
     {
-        return $this->belongsToMany(Devis::class);
+        return $this->belongsToMany(Devis::class,'module_devis');
     }
 
     /**
@@ -44,7 +45,7 @@ class Module extends Model
      */
     public function montants(): BelongsToMany
     {
-        return $this->belongsToMany(Montant::class);
+        return $this->belongsToMany(Montant::class,'module_montant');
     }
 
     /**
@@ -53,6 +54,15 @@ class Module extends Model
      */
     public function sections(): BelongsToMany
     {
-        return $this->belongsToMany(Section::class);
+        return $this->belongsToMany(Section::class,'module_section');
+    }
+
+    /**
+     * Retounre les composant utilisés par ce module
+     * @return BelongsToMany
+     */
+    public function composants(): BelongsToMany
+    {
+        return $this->belongsToMany(Composant::class,'composant_module');
     }
 }
