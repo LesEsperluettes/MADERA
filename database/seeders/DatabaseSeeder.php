@@ -4,6 +4,9 @@ namespace Database\Seeders;
 
 use App\Models\Composant;
 use App\Models\Fournisseur;
+use App\Models\Remplissage;
+use App\Models\TypeParameter;
+use App\Models\TypeSection;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -29,7 +32,14 @@ class DatabaseSeeder extends Seeder
             ComposantSeeder::class,
             // Devis
             ClientSeeder::class,
-            DevisSeeder::class
+            DevisSeeder::class,
+            // Remplissage
+            RemplissageSeeder::class,
+            // Montant
+            MontantSeeder::class,
+            //Section
+            TypeParameterSeeder::class,
+            TypeSectionSeeder::class
         ]);
     }
 }

@@ -16,7 +16,6 @@ class CreateRemplissageTable extends Migration
         Schema::create('remplissage', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string("nom");
             $table->string("type");
         });
     }

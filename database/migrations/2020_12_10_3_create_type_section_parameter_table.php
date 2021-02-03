@@ -16,9 +16,9 @@ class CreateTypeSectionParameterTable extends Migration
         Schema::create('type_section_parameter', function (Blueprint $table) {
             $table->bigInteger('type_section_id')->unsigned()->index();
             $table->bigInteger('type_parameter_id')->unsigned()->index();
-            $table->primary(['type_section_id','type_parameter_id']);
 
             $table->float('valeur');
+            $table->smallInteger('ordre');
 
             $table->foreign('type_section_id')->references('id')->on('type_section')->onDelete('cascade');
             $table->foreign('type_parameter_id')->references('id')->on('type_parameter')->onDelete('cascade');

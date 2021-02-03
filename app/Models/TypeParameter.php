@@ -16,6 +16,6 @@ class TypeParameter extends Model
      */
     public function typeSections(): BelongsToMany
     {
-        return $this->belongsToMany(TypeSection::class);
+        return $this->belongsToMany(TypeSection::class,'type_section_parameter');
     }
 }
