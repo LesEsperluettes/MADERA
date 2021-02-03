@@ -6,7 +6,7 @@ function displayMurExtContent() {
     document.getElementById("murIntContent").className = "d-none";
     document.getElementById("contructToitContent").className = "d-none";
 
-    document.getElementById("murExtContent").className = "visible";
+    document.getElementById("murExtContent").className = "form-group";
 }
 // Affiche le contenu de la div Mur Interieur
 function displayMurIntContent(){
@@ -14,8 +14,8 @@ function displayMurIntContent(){
     document.getElementById("murExtContent").className = "d-none";
     document.getElementById("contructIntContent").className = "d-none";
     document.getElementById("contructToitContent").className = "d-none";
-    
-    document.getElementById("murIntContent").className = "visible";
+
+    document.getElementById("murIntContent").className = "form-group";
 }
 // Affiche le contenu de la div Construction Interne
 function displayConstructIntContent() {
@@ -24,7 +24,7 @@ function displayConstructIntContent() {
     document.getElementById("murIntContent").className = "d-none";
     document.getElementById("contructToitContent").className = "d-none";
 
-    document.getElementById("contructIntContent").className = "visible";
+    document.getElementById("contructIntContent").className = "form-group";
 }
 // Affiche le contenu de la div Contruction Toit
 function displayConstructToitContent() {
@@ -33,5 +33,5 @@ function displayConstructToitContent() {
     document.getElementById("contructIntContent").className = "d-none";
     document.getElementById("murIntContent").className = "d-none";
 
-    document.getElementById("contructToitContent").className = "visible";
+    document.getElementById("contructToitContent").className = "form-group";
 }
