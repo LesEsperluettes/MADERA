@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -14,20 +15,20 @@ class Composant extends Model
 
     /**
      * Retourne le fournisseur de ce composant
-     * @return HasOne
+     * @return BelongsTo
      */
-    public function fournisseur(): HasOne
+    public function fournisseur(): BelongsTo
     {
-        return $this->hasOne(Fournisseur::class);
+        return $this->belongsTo(Fournisseur::class,'id_fournisseur');
     }
 
     /**
      * Retourne la famille de ce composant
-     * @return HasOne
+     * @return BelongsTo
      */
-    public function familleComposant(): HasOne
+    public function familleComposant(): BelongsTo
     {
-        return $this->hasOne(FamilleComposant::class);
+        return $this->belongsTo(FamilleComposant::class,'id_famille_composant');
     }
 
     /**

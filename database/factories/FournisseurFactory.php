@@ -22,6 +22,7 @@ class FournisseurFactory extends Factory
     public function definition()
     {
         return [
+            'nom' => $this->faker->company,
             'mail' => $this->faker->companyEmail,
             'adresse' => $this->faker->address,
             'tel' => $this->faker->e164PhoneNumber

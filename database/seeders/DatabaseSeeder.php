@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Composant;
 use App\Models\Fournisseur;
 use Illuminate\Database\Seeder;
 
@@ -16,14 +17,17 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             ClientSeeder::class,
-            FournisseurSeeder::class,
-            // Gamme
+            // Gammes
             CouvertureSeeder::class,
             FinitionSeeder::class,
             IsolantSeeder::class,
             QualiteHuisserieSeeder::class,
             OssatureBoisSeeder::class,
-            GammeSeeder::class
+            GammeSeeder::class,
+            // Composants
+            FamilleComposantSeeder::class,
+            FournisseurSeeder::class,
+            ComposantSeeder::class
         ]);
     }
 }

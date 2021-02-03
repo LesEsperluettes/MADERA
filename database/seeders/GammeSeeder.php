@@ -19,22 +19,20 @@ class GammeSeeder extends Seeder
      */
     public function run()
     {
-        $g1 = new Gamme();
-        $g1->nom = "Gamme n°1";
-        $g1->isolant()->associate(Isolant::find(1));
-        $g1->couverture()->associate(Couverture::find(1));
-        $g1->qualiteHuisserie()->associate(QualiteHuisserie::find(1));
-        $g1->ossatureBois()->associate(OssatureBois::find(1));
-        $g1->finition()->associate(Finition::find(1));
-        $g1->save();
+        $gammes = [
+            array('nom' => 'Gamme n°1', 'isolant' => 1, 'couverture' => 1, 'qualite_huisserie' => 1, 'ossature_bois' => 1, 'finition' => 1),
+            array('nom' => 'Gamme n°2', 'isolant' => 2, 'couverture' => 2, 'qualite_huisserie' => 2, 'ossature_bois' => 2, 'finition' => 2)
+        ];
 
-        $g2 = new Gamme();
-        $g2->nom = "Gamme n°2";
-        $g2->isolant()->associate(Isolant::find(2));
-        $g2->couverture()->associate(Couverture::find(2));
-        $g2->qualiteHuisserie()->associate(QualiteHuisserie::find(2));
-        $g2->ossatureBois()->associate(OssatureBois::find(2));
-        $g2->finition()->associate(Finition::find(2));
-        $g2->save();
+        foreach ($gammes as $gamme){
+            $g = new Gamme();
+            $g->nom = $gamme['nom'];
+            $g->isolant()->associate(Isolant::find($gamme['isolant']));
+            $g->couverture()->associate(Couverture::find($gamme['couverture']));
+            $g->qualiteHuisserie()->associate(QualiteHuisserie::find($gamme['qualite_huisserie']));
+            $g->ossatureBois()->associate(OssatureBois::find($gamme['ossature_bois']));
+            $g->finition()->associate(Finition::find($gamme['finition']));
+            $g->save();
+        }
     }
 }
