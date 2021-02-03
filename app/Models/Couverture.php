@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Couverture extends Model
 {
+    protected $table = 'couverture';
+
     /**
      * Retourne les gammes qui utilisent cette ouverture
      * @return HasMany

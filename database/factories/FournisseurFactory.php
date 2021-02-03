@@ -24,7 +24,7 @@ class FournisseurFactory extends Factory
         return [
             'mail' => $this->faker->companyEmail,
             'adresse' => $this->faker->address,
-            'numero_telephone' => $this->faker->e164PhoneNumber
+            'tel' => $this->faker->e164PhoneNumber
         ];
     }
 }

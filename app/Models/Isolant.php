@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Isolant extends Model
 {
+    protected $table = 'isolant';
+
     /**
      * Retourne les gammes qui utilisent cet isolant
      * @return HasMany

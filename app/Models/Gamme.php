@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Gamme extends Model
 {
+    protected $table = 'gamme';
+
     /**
      * Retourne l'insolant de cette gamme
      * @return HasOne

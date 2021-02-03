@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Facturation extends Model
 {
+    protected $table = 'facturation';
+
     /**
      * Retourne le devis de cette facturation
      * @return HasOne

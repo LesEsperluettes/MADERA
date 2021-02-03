@@ -10,6 +10,8 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Composant extends Model
 {
+    protected $table = 'composant';
+
     /**
      * Retourne le fournisseur de ce composant
      * @return HasOne

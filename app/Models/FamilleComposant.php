@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class FamilleComposant extends Model
 {
+    protected $table = 'famille_composant';
+
     /**
      * Retourne les composants de cette famille
      * @return HasMany

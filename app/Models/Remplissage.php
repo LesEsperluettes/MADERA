@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Remplissage extends Model
 {
+    protected $table = 'remplissage';
+
     /**
      * Retourne les modules qui utilisent ce remplissage
      * @return BelongsToMany

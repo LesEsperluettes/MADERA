@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Montant extends Model
 {
+    protected $table = 'montant';
+
     /**
      * Retourne les modules qui utilise ce montant
      * @return BelongsToMany

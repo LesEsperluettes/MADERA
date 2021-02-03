@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Client extends Model
 {
     use HasFactory;
+    protected $table = 'client';
 
     /**
      * Retourne tous les devis de ce client

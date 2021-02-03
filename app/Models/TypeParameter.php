@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class TypeParameter extends Model
 {
+    protected $table = 'type_parameter';
+
     /**
      * Retourne les TypeSections qui utilise ce paramètre
      * @return BelongsToMany

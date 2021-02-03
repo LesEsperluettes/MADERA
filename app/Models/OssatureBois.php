@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class OssatureBois extends Model
 {
+    protected $table = 'ossature_bois';
+
     /**
      * Retourne les gammes qui utilisent cette ossature bois
      * @return HasMany

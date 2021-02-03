@@ -10,6 +10,8 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Section extends Model
 {
+    protected $table = 'section';
+
     /**
      * Retourne le type de cette section
      * @return HasOne

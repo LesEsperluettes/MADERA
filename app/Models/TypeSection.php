@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class TypeSection extends Model
 {
+    protected $table = 'type_section';
+
     /**
      * Retourne les paramètres de type de sections
      * @return BelongsToMany

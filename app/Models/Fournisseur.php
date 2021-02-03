@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Fournisseur extends Model
 {
     use HasFactory;
+    protected $table = 'fournisseur';
 
     /**
      * Retourne les composants de ce fournisseur

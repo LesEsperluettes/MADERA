@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class QualiteHuisserie extends Model
 {
+    protected $table = 'qualite_huisserie';
+
     /**
      * Retourne les gammes qui utilisent cette qualité d'huisserie
      * @return HasMany

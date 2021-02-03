@@ -10,6 +10,8 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Devis extends Model
 {
+    protected $table = 'devis';
+
     /**
      * Retourne le client correspondant à ce devis
      * @return HasOne

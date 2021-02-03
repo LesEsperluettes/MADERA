@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Finition extends Model
 {
+    protected $table = 'finition';
+
     /**
      * Retourne les gammes possèdant cette finition
      * @return HasMany
