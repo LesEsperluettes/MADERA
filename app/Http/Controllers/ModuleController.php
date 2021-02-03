@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 class ModuleController extends Controller
 {
     public function module_etape1()
@@ -30,6 +28,6 @@ class ModuleController extends Controller
     {
         return view('Module/Creation_resume_module');
     }
-    
+
 
 }
