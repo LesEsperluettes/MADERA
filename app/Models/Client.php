@@ -14,10 +14,10 @@ class Client extends Model
 
     /**
      * Retourne tous les devis de ce client
-     * @return BelongsToMany
+     * @return HasMany
      */
-    public function devis(): BelongsToMany
+    public function devis(): HasMany
     {
-        return $this->belongsToMany(Devis::class);
+        return $this->hasMany(Devis::class);
     }
 }

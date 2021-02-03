@@ -20,5 +20,14 @@ class TypeSection extends Model
         return $this->belongsToMany(TypeParameter::class,'type_section_parameter');
     }
 
+    /**
+     * Retourne les sections qui utilisent ce type
+     * @return HasMany
+     */
+    public function sections(): HasMany
+    {
+        return $this->hasMany(Section::class);
+    }
+
 
 }

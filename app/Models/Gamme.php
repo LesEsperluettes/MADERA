@@ -23,7 +23,7 @@ class Gamme extends Model
     }
 
     /**
-     * Retourne l'ouverture de cette gamme
+     * Retourne la couverture de cette gamme
      * @return BelongsTo
      */
     public function couverture(): BelongsTo

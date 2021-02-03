@@ -24,11 +24,11 @@ class Devis extends Model
 
     /**
      * Retourne les facturations de ce devis
-     * @return BelongsToMany
+     * @return HasMany
      */
-    public function facturations(): BelongsToMany
+    public function facturations(): HasMany
     {
-        return $this->belongsToMany(Facturation::class);
+        return $this->hasMany(Facturation::class);
     }
 
     /**
