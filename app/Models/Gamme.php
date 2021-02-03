@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
@@ -13,47 +14,47 @@ class Gamme extends Model
 
     /**
      * Retourne l'insolant de cette gamme
-     * @return HasOne
+     * @return BelongsTo
      */
-    public function isolant(): HasOne
+    public function isolant(): BelongsTo
     {
-        return $this->hasOne(Isolant::class);
+        return $this->belongsTo(Isolant::class,'id_isolant');
     }
 
     /**
      * Retourne l'ouverture de cette gamme
-     * @return HasOne
+     * @return BelongsTo
      */
-    public function ouverture(): HasOne
+    public function couverture(): BelongsTo
     {
-        return $this->hasOne(Couverture::class);
+        return $this->belongsTo(Couverture::class,'id_couverture');
     }
 
     /**
      * Retourne la qualité d'huisserie de cette gamme
-     * @return HasOne
+     * @return BelongsTo
      */
-    public function qualiteHuisserie(): HasOne
+    public function qualiteHuisserie(): BelongsTo
     {
-        return $this->hasOne(QualiteHuisserie::class);
+        return $this->belongsTo(QualiteHuisserie::class,'id_qualite_huisserie');
     }
 
     /**
      * Retourne l'ossature bois de cette gamme
-     * @return HasOne
+     * @return BelongsTo
      */
-    public function ossatureBois(): HasOne
+    public function ossatureBois(): BelongsTo
     {
-        return $this->hasOne(OssatureBois::class);
+        return $this->belongsTo(OssatureBois::class,'id_ossature_bois');
     }
 
     /**
      * Retourne la finition de cette gamme
-     * @return HasOne
+     * @return BelongsTo
      */
-    public function finition(): HasOne
+    public function finition(): BelongsTo
     {
-        return $this->hasOne(Finition::class);
+        return $this->belongsTo(Finition::class,'id_finition');
     }
 
     /**
