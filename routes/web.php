@@ -18,6 +18,7 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+Route::get('logout',[\App\Http\Controllers\Auth\LoginController::class,'logout'])->name('logout');
 
 Route::get('/home', [App\Http\Controllers\AccueilController::class, 'index'])->name('home');
 /* TODO: If user=BE; then route::get->name('home-be');
