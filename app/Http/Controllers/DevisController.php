@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 class DevisController extends Controller
 {
     public function index_etape1()
@@ -25,7 +23,7 @@ class DevisController extends Controller
     {
         return view('Devis/Creation_resume');
     }
-    
+
     public function index_etape_finale()
     {
         return view('Devis/Creation_termine');

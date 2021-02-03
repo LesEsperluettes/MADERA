@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use App\Models\Couverture;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
 class CouvertureSeeder extends Seeder
 {
