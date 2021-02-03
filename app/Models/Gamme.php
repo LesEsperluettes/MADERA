@@ -9,6 +9,39 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
+/**
+ * App\Models\Gamme
+ *
+ * @property int $id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property string $nom
+ * @property int $isolant_id
+ * @property int $couverture_id
+ * @property int $qualite_huisserie_id
+ * @property int $ossature_bois_id
+ * @property int $finition_id
+ * @property-read \App\Models\Couverture $couverture
+ * @property-read \App\Models\Finition $finition
+ * @property-read \App\Models\Isolant $isolant
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Module[] $modules
+ * @property-read int|null $modules_count
+ * @property-read \App\Models\OssatureBois $ossatureBois
+ * @property-read \App\Models\QualiteHuisserie $qualiteHuisserie
+ * @method static \Illuminate\Database\Eloquent\Builder|Gamme newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Gamme newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Gamme query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Gamme whereCouvertureId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Gamme whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Gamme whereFinitionId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Gamme whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Gamme whereIsolantId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Gamme whereNom($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Gamme whereOssatureBoisId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Gamme whereQualiteHuisserieId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Gamme whereUpdatedAt($value)
+ * @mixin \Eloquent
+ */
 class Gamme extends Model
 {
     protected $table = 'gamme';
