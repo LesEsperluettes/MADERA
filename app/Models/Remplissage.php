@@ -17,6 +17,6 @@ class Remplissage extends Model
      */
     public function modules(): BelongsToMany
     {
-        return $this->belongsToMany(Module::class);
+        return $this->belongsToMany(Module::class,'module_remplissage');
     }
 }
