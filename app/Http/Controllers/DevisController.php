@@ -141,9 +141,23 @@ class DevisController extends Controller
         return view('Devis/Creation_personnalisation');
     }
 
-    public function index_etape4()
+    public function index_etape4(Request $request)
     {
-        return view('Devis/Creation_resume');
+        if(!session()->has([
+            'selectedClient',
+            'nomProjet',
+            'refProjet',
+            'dateProjet',
+            'gamme',
+            'modele'
+        ])) return redirect()->route('devis_etape_1');
+
+        $modele = $request->session()->get('modele');
+        $modules = $modele->modules;
+
+        return view('Devis/Creation_resume',[
+            'modules' => $modules
+        ]);
     }
 
     public function index_etape_finale()

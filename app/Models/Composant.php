@@ -29,6 +29,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @method static \Illuminate\Database\Eloquent\Builder|Composant whereNom($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Composant whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Section[] $sections
+ * @property-read int|null $sections_count
  */
 class Composant extends Model
 {
@@ -53,11 +55,11 @@ class Composant extends Model
     }
 
     /**
-     * Retourne les modules qui utilisent ce composant
+     * Retourne les sections qui utilisent ce composant
      * @return BelongsToMany
      */
-    public function modules(): BelongsToMany
+    public function sections(): BelongsToMany
     {
-        return $this->belongsToMany(Module::class,'composant_module');
+        return $this->belongsToMany(Section::class,'section_composant');
     }
 }

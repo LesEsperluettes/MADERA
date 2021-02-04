@@ -33,8 +33,6 @@ class DatabaseSeeder extends Seeder
             DevisSeeder::class,
             // Remplissage
             RemplissageSeeder::class,
-            // Montant
-            MontantSeeder::class,
             //Section
             TypeParameterSeeder::class,
             TypeSectionSeeder::class,

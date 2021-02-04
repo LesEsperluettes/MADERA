@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Composant;
 use App\Models\Section;
 use App\Models\TypeSection;
 use Illuminate\Database\Seeder;
@@ -18,5 +19,8 @@ class SectionSeeder extends Seeder
         $s = new Section();
         $s->type()->associate(TypeSection::find(1));
         $s->save();
+
+        $s->composants()->save(Composant::find('1'),['quantite' => 4]);
+        $s->composants()->save(Composant::find('3'),['quantite' => 4]);
     }
 }

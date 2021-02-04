@@ -40,6 +40,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @mixin \Eloquent
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Modele[] $modeles
  * @property-read int|null $modeles_count
+ * @property int $remplissage_id
+ * @method static \Illuminate\Database\Eloquent\Builder|Module whereRemplissageId($value)
  */
 class Module extends Model
 {
@@ -47,20 +49,11 @@ class Module extends Model
 
     /**
      * Retourne le remplissage de ce module
-     * @return BelongsToMany
+     * @return BelongsTo
      */
-    public function remplissage(): BelongsToMany
+    public function remplissage(): BelongsTo
     {
-        return $this->belongsToMany(Remplissage::class,'module_remplissage');
-    }
-
-    /**
-     * Retourne les montants utilisés pour ce module
-     * @return BelongsToMany
-     */
-    public function montants(): BelongsToMany
-    {
-        return $this->belongsToMany(Montant::class,'module_montant');
+        return $this->belongsTo(Remplissage::class);
     }
 
     /**
@@ -70,15 +63,6 @@ class Module extends Model
     public function sections(): BelongsToMany
     {
         return $this->belongsToMany(Section::class,'module_section');
-    }
-
-    /**
-     * Retounre les composant utilisés par ce module
-     * @return BelongsToMany
-     */
-    public function composants(): BelongsToMany
-    {
-        return $this->belongsToMany(Composant::class,'composant_module');
     }
 
     /**

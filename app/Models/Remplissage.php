@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * App\Models\Remplissage
@@ -29,10 +30,10 @@ class Remplissage extends Model
 
     /**
      * Retourne les modules qui utilisent ce remplissage
-     * @return BelongsToMany
+     * @return HasMany
      */
-    public function modules(): BelongsToMany
+    public function modules(): HasMany
     {
-        return $this->belongsToMany(Module::class,'module_remplissage');
+        return $this->hasMany(Module::class);
     }
 }
