@@ -104,7 +104,7 @@ class DevisController extends Controller
 
         }else{
             // Load modeles if gamme is selected
-            if($parameters['gamme'] || $gammeId){
+            if(isset($parameters['gamme']) || $gammeId){
                 $gamme = $gammeId  ? Gamme::find($gammeId)  : $parameters['gamme'];
                 if($gamme){
                     $parameters['gamme'] = $gamme;
@@ -156,6 +156,7 @@ class DevisController extends Controller
         $modules = $modele->modules;
 
         return view('Devis/Creation_resume',[
+            'modele' => $modele,
             'modules' => $modules
         ]);
     }

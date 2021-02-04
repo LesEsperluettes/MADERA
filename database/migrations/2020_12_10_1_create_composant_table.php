@@ -16,7 +16,9 @@ class CreateComposantTable extends Migration
         Schema::create('composant', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+
             $table->string("nom");
+            $table->float("prix_unitaire");
 
             $table->bigInteger('famille_composant_id')->unsigned()->index();
             $table->bigInteger('fournisseur_id')->unsigned()->index();

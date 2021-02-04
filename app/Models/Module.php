@@ -73,4 +73,12 @@ class Module extends Model
     {
         return $this->belongsToMany(Modele::class,'modele_module');
     }
+
+    public function getPrixUnitaire(){
+        $total = 0.0;
+        foreach ($this->sections as $section){
+            $total += $section->getPrixUnitaire() * $section->pivot->quantite;
+        }
+        return $total;
+    }
 }

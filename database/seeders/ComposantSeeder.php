@@ -17,14 +17,15 @@ class ComposantSeeder extends Seeder
     public function run()
     {
         $composants = [
-            array('nom' => "Montant 10m x 10cm", 'famille' => 6, 'fournisseur' => 1),
-            array('nom' => "Montant 10m x 5cm", 'famille' => 6, 'fournisseur' => 1),
-            array('nom' => "Sabot universel 76x152mm", 'famille' => 3, 'fournisseur' => 2),
+            array('nom' => "Montant 45x45mm 3m", 'famille' => 6, 'fournisseur' => 1, 'PU' => 6.00),
+            array('nom' => "Montant 45x70mm 4m", 'famille' => 6, 'fournisseur' => 1, 'PU' => 10),
+            array('nom' => "Sabot universel 76x152mm", 'famille' => 3, 'fournisseur' => 2, 'PU' => 2),
         ];
 
         foreach ($composants as $composant){
             $c = new Composant();
             $c->nom = $composant['nom'];
+            $c->prix_unitaire = $composant['PU'];
             $c->familleComposant()->associate(FamilleComposant::find($composant['famille']));
             $c->fournisseur()->associate(Fournisseur::find($composant['fournisseur']));
             $c->save();

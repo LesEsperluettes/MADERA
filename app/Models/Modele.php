@@ -60,4 +60,12 @@ class Modele extends Model
     {
         return $this->belongsToMany(Devis::class,'modele_devis');
     }
+
+    public function getPrixUnitaire(){
+        $total = 0.0;
+        foreach ($this->modules as $module){
+            $total += $module->getPrixUnitaire();
+        }
+        return $total;
+    }
 }

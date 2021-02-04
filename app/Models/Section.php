@@ -61,4 +61,17 @@ class Section extends Model
     {
         return $this->belongsToMany(Composant::class,'section_composant');
     }
+
+    /**
+     * Calcule le prix unitaire de la section via le prix des composants
+     * @return float|mixed
+     */
+    public function getPrixUnitaire(){
+        $composants = $this->composants;
+        $total = 0.0;
+        foreach ($composants as $composant){
+            $total += $composant->prix_unitaire;
+        }
+        return $total;
+    }
 }
