@@ -26,6 +26,10 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @mixin \Eloquent
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Composant[] $composant
  * @property-read int|null $composant_count
+ * @property string $nom
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Composant[] $composants
+ * @property-read int|null $composants_count
+ * @method static \Illuminate\Database\Eloquent\Builder|Section whereNom($value)
  */
 class Section extends Model
 {
