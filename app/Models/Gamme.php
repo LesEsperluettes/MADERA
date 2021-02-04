@@ -38,6 +38,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @method static \Illuminate\Database\Eloquent\Builder|Gamme whereQualiteHuisserieId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Gamme whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Modele[] $modeles
+ * @property-read int|null $modeles_count
  */
 class Gamme extends Model
 {
@@ -89,11 +91,11 @@ class Gamme extends Model
     }
 
     /**
-     * Retourne les modules qui utilisent cette gamme
+     * Retourne les modeles qui utilisent cette gamme
      * @return HasMany
      */
-    public function modules(): HasMany
+    public function modeles(): HasMany
     {
-        return $this->hasMany(Module::class);
+        return $this->hasMany(Modele::class);
     }
 }

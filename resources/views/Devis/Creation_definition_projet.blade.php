@@ -4,6 +4,10 @@
     <link href="{{ asset('css/devis1.css') }}" rel="stylesheet">
 @endsection
 
+@section('script')
+    <script src="{{ asset('js/devis.js') }}"></script>
+@endsection
+
 @section('breadcrumb')
     <ol class="breadcrumb" style="border : 2px solid black; background-color : rgb(50, 85, 115); color:rgb(181, 215, 244)">
         <li class="breadcrumb-item"><a href="/home">Accueil</a></li>
@@ -24,43 +28,59 @@
         <div class="d-inline">4</div>
     </div>
 
+    @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+    @endforeach
+
     <div style="background-color: rgb(218, 235, 249);" class="m-3">
         <div class="p-4">
-            <form action="/devis2">
+            <form method="GET" action="{{ route('devis_etape_1') }}" >
                 <div class="form-group">
                     <label for="choixClient">Référence client : </label>
                     <input id="refClient" name="refClient" type="hidden" value="valeur de la ref client">
-                    <div id="choixClient"
-                        style="display : flex; justify-content : center; align-items : center; flex-direction : column;">
+                    @isset($selectedClient)
+                        <input type="hidden" name="selectedClient" value="{{$selectedClient->id}}">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $selectedClient->nom }}</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">{{ $selectedClient->mail }}</h6>
+                                <p class="card-text">{{ $selectedClient->adresse }}</p>
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalClientExistant">Chercher un autre client existant</button>
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalNouveauClient">Nouveau client</button>
+                            </div>
+                        </div>
+                    @else
+                        <div id="choixClient" style="display : flex; justify-content : center; align-items : center; flex-direction : column;">
 
-                        <button type="button" class="btn btn-outline-primary btn-lg btn-block" data-toggle="modal"
-                            data-target="#modalClientExistant">Client existant</button>
-                            
+                            <button type="button" class="btn btn-outline-primary btn-lg btn-block" data-toggle="modal"
+                                    data-target="#modalClientExistant">Client existant</button>
+
                             <button type="button" class="btn btn-outline-secondary btn-lg btn-block" data-toggle="modal"
-                            data-target="#modalNouveauClient">Nouveau client</button>
-                    </div>
+                                    data-target="#modalNouveauClient">Nouveau client</button>
+                        </div>
+                    @endisset
                 </div>
 
                 <div class="form-group">
                     <label for="nomProjet">Nom du projet</label>
-                    <input type="text" class="form-control" id="nomProjet">
+                    <input type="text" name="nomProjet" id="nomProjet" class="form-control" value="{{ old('nomProjet') }}" @if(!isset($selectedClient)) disabled @endif>
                 </div>
 
                 <div class="ref_date_devis">
                     <div class="form-group">
                         <label for="refProjet">Référence du projet</label>
-                        <input type="text" class="form-control input2" id="refProjet">
+                        <input type="text" name="refProjet" id="refProjet" class="form-control input2" value="{{ old('refProjet') }}" @if(!isset($selectedClient)) disabled @endif>
                     </div>
 
                     <div class="form-group div_date">
                         <label for="dateProjet">Date</label>
-                        <input type="date" class="form-control input2" id="dateProjet">
+                        <input type="date" name="dateProjet" id="dateProjet" class="form-control input2" value="{{ old('dateProjet') }}" @if(!isset($selectedClient)) disabled @endif>
                     </div>
                 </div>
 
-
+                <input type="hidden" name="goToNextStep" value="true">
                 <a role="button" class="btn btn-outline-danger" href="/home">Annuler</a>
-                <button type="submit" class="btn btn-primary float-right">Suivant</button>
+                <button type="submit" class="btn btn-primary float-right" @if(!isset($selectedClient)) disabled @endif>Suivant</button>
             </form>
         </div>
     </div>
@@ -76,21 +96,27 @@
               </button>
             </div>
             <div class="modal-body">
-                <ul class="list-group list-group">
-                    <li class="list-group-item active">Antoine CORGNIARD</li>
-                    <li class="list-group-item">Alexis Poupelin</li>
-                    <li class="list-group-item">Theo DAVID</li>
-                    <li class="list-group-item">Arthur CHERAMY</li>
-                  </ul>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">🔎</span>
+                    <input oninput="filterClients(this)" type="text" class="form-control" placeholder="Rechercher un client" aria-label="search_client" aria-describedby="basic-addon1">
+                </div>
+                <div class="list-group">
+                    @foreach ($clients as $client)
+                        <a id="client_{{ $client->id }}" onclick="selectClient({{ $client->id }})" class="list-group-item list-group-item-action">{{$client->nom}}</a>
+                    @endforeach
+                </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-              <button type="button" class="btn btn-primary">Selectionner</button>
+                <form method="GET" action="{{ route('devis_etape_1') }}">
+                    <input type="hidden" value="" name="selectedClient" id="selected_client_input">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                    <button type="submit" class="btn btn-primary">Selectionner</button>
+                </form>
             </div>
           </div>
         </div>
       </div>
-      
+
       <!-- ModalClientExistant -->
       <div class="modal fade" id="modalNouveauClient" tabindex="-1" aria-labelledby="modalNouveauClientTitre" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered">
@@ -128,5 +154,4 @@
             </div>
           </div>
         </div>
-
 @endsection
