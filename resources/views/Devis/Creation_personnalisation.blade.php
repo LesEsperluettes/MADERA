@@ -30,12 +30,12 @@
                 <a role="button" class="btn btn-primary btn_editor" href="#">Cliquer ici pour ouvrir l'éditeur</a>
             </div>
 
-            <form>
+            <form method="GET" action="{{ route('devis_etape_3') }}" >
                 <div class="buttons">
                     <a role="button" class="btn btn-outline-danger" href="/devis2">Précédant</a>
                     <div class="btn_next">
                         <h4 class="text-center">Sinon vous pouvez continuer --></h4>
-                        <a type="submit" class="btn btn-primary float-right">Suivant</a>
+                        <button type="submit" class="btn btn-primary float-right">Suivant</button>
                     </div>
                 </div>
 
