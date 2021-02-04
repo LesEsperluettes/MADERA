@@ -38,6 +38,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @method static \Illuminate\Database\Eloquent\Builder|Gamme whereQualiteHuisserieId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Gamme whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Modele[] $modeles
+ * @property-read int|null $modeles_count
  */
 class Gamme extends Model
 {

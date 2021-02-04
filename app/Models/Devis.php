@@ -31,6 +31,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @method static \Illuminate\Database\Eloquent\Builder|Devis whereReferenceProjet($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Devis whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Modele[] $modeles
+ * @property-read int|null $modeles_count
  */
 class Devis extends Model
 {

@@ -20,17 +20,26 @@ class ModuleSeeder extends Seeder
     public function run()
     {
         $m = new Module();
-        $m->nom = "Module n°1";
+        $m->nom = "Salon";
         $m->marge_commerciale = 10;
         $m->prix_base = 2000;
-        $m->gamme()->associate(Gamme::find(1));
         $m->save();
 
         $m->sections()->save(Section::find(1));
         $m->montants()->save(Montant::find(1));
         $m->remplissage()->save(Montant::find(1));
-        $m->devis()->save(Devis::find(1));
         $m->composants()->save(Composant::find(1));
+
+        $m2 = new Module();
+        $m2->nom = "Chambre";
+        $m2->marge_commerciale = 20;
+        $m2->prix_base = 1500;
+        $m2->save();
+
+        $m2->sections()->save(Section::find(1));
+        $m2->montants()->save(Montant::find(1));
+        $m2->remplissage()->save(Montant::find(1));
+        $m2->composants()->save(Composant::find(1));
 
     }
 }

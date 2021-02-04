@@ -40,7 +40,9 @@ class DatabaseSeeder extends Seeder
             TypeSectionSeeder::class,
             SectionSeeder::class,
             //Module
-            ModuleSeeder::class
+            ModuleSeeder::class,
+            // Modele
+            ModeleSeeder::class
         ]);
     }
 }
