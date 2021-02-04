@@ -40,13 +40,18 @@
                             @endforeach
                         </select>
 
-                        <select class="custom-select custom-select-lg mb-3" name="modeleId" @if(!isset($modeles)) disabled @endif>
+                        <select class="custom-select custom-select-lg mb-3 @error('modeleId') is-invalid @enderror" name="modeleId" @if(!isset($modeles)) disabled @endif>
                             @isset($modeles)
                                 @foreach($modeles as $modele)
                                     <option value="{{ $modele->id }}">{{ $modele->nom }}</option>
                                 @endforeach
                             @endisset
                         </select>
+                        @error('modeleId')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
 
                     <div class="colonne">
