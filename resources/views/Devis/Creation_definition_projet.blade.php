@@ -63,18 +63,18 @@
 
                 <div class="form-group">
                     <label for="nomProjet">Nom du projet</label>
-                    <input type="text" name="nomProjet" id="nomProjet" class="form-control" value="{{ old('nomProjet') }}" @if(!isset($selectedClient)) disabled @endif>
+                    <input type="text" name="nomProjet" id="nomProjet" class="form-control" value="{{ isset($nomProjet) ? $nomProjet : old('nomProjet') }}" @if(!isset($selectedClient)) disabled @endif>
                 </div>
 
                 <div class="ref_date_devis">
                     <div class="form-group">
                         <label for="refProjet">Référence du projet</label>
-                        <input type="text" name="refProjet" id="refProjet" class="form-control input2" value="{{ old('refProjet') }}" @if(!isset($selectedClient)) disabled @endif>
+                        <input type="text" name="refProjet" id="refProjet" class="form-control input2" value="{{ isset($refProjet) ? $refProjet : old('refProjet') }}" @if(!isset($selectedClient)) disabled @endif>
                     </div>
 
                     <div class="form-group div_date">
                         <label for="dateProjet">Date</label>
-                        <input type="date" name="dateProjet" id="dateProjet" class="form-control input2" value="{{ old('dateProjet') }}" @if(!isset($selectedClient)) disabled @endif>
+                        <input type="date" name="dateProjet" id="dateProjet" class="form-control input2" value="{{ isset($dateProjet) ? $dateProjet : old('dateProjet') }}" @if(!isset($selectedClient)) disabled @endif>
                     </div>
                 </div>
 
