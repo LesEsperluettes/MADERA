@@ -29,7 +29,13 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto"></ul>
-                <a role="button" class="btn btn-primary" href="/login">Se connecter</a>
+                @auth
+                    <span class="p-2">{{ Auth::user()->role()->first()->nom }}</span>
+                    <a role="button" class="btn btn-danger" href="/logout">Se déconnecter</a>
+                @else
+                    <a role="button" class="btn btn-primary" href="/login">Se connecter</a>
+                @endif
+
             </div>
         </nav>
     </header>
