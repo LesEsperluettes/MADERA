@@ -18,6 +18,8 @@ class CreateModuleSectionTable extends Migration
             $table->bigInteger('section_id')->unsigned()->index();
             $table->primary(['module_id','section_id']);
 
+            $table->integer('quantite');
+
             $table->foreign('module_id')->references('id')->on('module')->onDelete('cascade');
             $table->foreign('section_id')->references('id')->on('section')->onDelete('cascade');
         });

@@ -46,7 +46,7 @@ class Section extends Model
      */
     public function modules(): BelongsToMany
     {
-        return $this->belongsToMany(Module::class,'module_section');
+        return $this->belongsToMany(Module::class,'module_section')->withPivot('quantite');
     }
 
     /**

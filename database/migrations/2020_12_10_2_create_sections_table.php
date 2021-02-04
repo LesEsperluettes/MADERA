@@ -17,6 +17,8 @@ class CreateSectionsTable extends Migration
             $table->id();
             $table->timestamps();
 
+            $table->string('nom');
+
             $table->bigInteger('type_section_id')->unsigned()->index();
             $table->foreign('type_section_id')->references("id")->on("type_section");
         });

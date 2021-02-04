@@ -20,7 +20,7 @@ class EnsureUserHasRole
     {
         $user_role = Role::where('nom',$role)->first();
 
-        if($user_role == null || !($request->user()->hasRole($user_role))){
+        if($user_role == null || $request->user() == null || !($request->user()->hasRole($user_role))){
             return redirect()->route('home');
         }
         return $next($request);

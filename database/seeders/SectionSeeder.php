@@ -18,6 +18,7 @@ class SectionSeeder extends Seeder
     {
         $s = new Section();
         $s->type()->associate(TypeSection::find(1));
+        $s->nom = "Mur 2m x 5m";
         $s->save();
 
         $s->composants()->save(Composant::find('1'),['quantite' => 4]);
