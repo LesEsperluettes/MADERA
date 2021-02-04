@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Client;
 use App\Models\Gamme;
+use App\Models\Modele;
 use Illuminate\Http\Request;
 
 class DevisController extends Controller
@@ -51,9 +52,33 @@ class DevisController extends Controller
 
     public function index_etape2(Request $request)
     {
-        return view('Devis/Creation_choix_produit',[
-            'gammes' => Gamme::all()
-        ]);
+        $parameters = [
+            'gammes' => Gamme::all(),
+        ];
+
+        $goToNextStep = $request->input('goToNextStep');
+        $gammeId = $request->input('gammeId');
+        $modeleId = $request->input('modeleId');
+
+        if($goToNextStep == "true") {
+            dd($goToNextStep);
+        }else{
+            // Load modeles if gamme is selected
+            if(isset($gammeId)){
+                $gamme = Gamme::find($gammeId);
+                if($gamme){
+                    $parameters['gamme'] = $gamme;
+                    $parameters['modeles'] = $gamme->modeles;
+                    $parameters['finition'] = $gamme->finition;
+                    $parameters['isolant'] = $gamme->isolant;
+                    $parameters['couverture'] = $gamme->couverture;
+                    $parameters['huisserie'] = $gamme->qualiteHuisserie;
+                    $parameters['ossature'] = $gamme->ossatureBois;
+                }
+            }
+        }
+
+        return view('Devis/Creation_choix_produit',$parameters);
     }
 
     public function index_etape3()

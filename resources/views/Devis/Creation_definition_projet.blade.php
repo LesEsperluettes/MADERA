@@ -5,7 +5,7 @@
 @endsection
 
 @section('script')
-    <script src="{{ asset('js/devis.js') }}"></script>
+    <script src="{{ asset('js/devis/devis1.js') }}"></script>
 @endsection
 
 @section('breadcrumb')
