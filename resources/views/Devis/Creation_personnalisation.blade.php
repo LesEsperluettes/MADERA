@@ -30,13 +30,17 @@
                 <a role="button" class="btn btn-primary btn_editor" href="#">Cliquer ici pour ouvrir l'éditeur</a>
             </div>
 
-            <div class="buttons">
-                <a role="button" class="btn btn-outline-danger" href="/devis2">Précédant</a>
-                <div class="btn_next">
-                    <h4 class="text-center">Sinon vous pouvez continuer --></h4>
-                    <a class="btn btn-primary float-right" href="/devis4">Suivant</a>
+            <form method="GET" action="{{ route('devis_etape_3') }}" >
+                <div class="buttons">
+                    <a role="button" class="btn btn-outline-danger" href="/devis2">Précédant</a>
+                    <div class="btn_next">
+                        <h4 class="text-center">Sinon vous pouvez continuer --></h4>
+                        <button type="submit" class="btn btn-primary float-right">Suivant</button>
+                    </div>
                 </div>
-            </div>
+
+                <input type="hidden" name="goToNextStep" value="true">
+            </form>
         </div>
     </div>
 

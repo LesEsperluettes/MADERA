@@ -105,7 +105,7 @@
             </div>
             <div class="row justify-content-center" style="width:70%">
                 <div class="col-sm" style="display: flex; align-items : center; justify-content : center;">
-                    <a role="button" class="btn btn-primary btn-block btn-options m-3" href='/devis1' style="width : 100%; font-size: 25px;">Création d'un nouveau
+                    <a role="button" class="btn btn-primary btn-block btn-options m-3" href='{{ route('devis_etape_1') }}' style="width : 100%; font-size: 25px;">Création d'un nouveau
                         devis</a>
                 </div>
             </div>

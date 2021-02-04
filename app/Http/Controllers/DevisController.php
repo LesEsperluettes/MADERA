@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Client;
 use App\Models\Gamme;
+use App\Models\Modele;
 use Illuminate\Http\Request;
 
 class DevisController extends Controller
@@ -14,11 +15,20 @@ class DevisController extends Controller
             'clients' => Client::all()
         ];
 
+
         $goToNextStep = $request->input('goToNextStep');
         $selectedClient = $request->input('selectedClient');
         $nomProjet = $request->input('nomProjet');
         $refProjet = $request->input('refProjet');
         $dateProjet = $request->input('dateProjet');
+
+        // Load session if exists
+        $inputs = ['selectedClient', 'nomProjet', 'refProjet', 'dateProjet'];
+        if($request->session()->has($inputs)){
+            foreach($inputs as $i){
+                $parameters[$i] = $request->session()->get($i);
+            }
+        }
 
         if(isset($goToNextStep)){
             // Validate request
@@ -32,12 +42,13 @@ class DevisController extends Controller
             $client = Client::find($selectedClient);
 
             // redirect to next step
-            return redirect()->route('devis_etape_2')->with([
+            $request->session()->put([
                 'selectedClient' => $client,
                 'nomProjet' => $nomProjet,
                 'refProjet' => $refProjet,
                 'dateProjet' => $dateProjet
             ]);
+            return redirect()->route('devis_etape_2');
         }else{
             // Query selected client if provided
             if($selectedClient){
@@ -51,19 +62,102 @@ class DevisController extends Controller
 
     public function index_etape2(Request $request)
     {
-        return view('Devis/Creation_choix_produit',[
-            'gammes' => Gamme::all()
-        ]);
+        // Check for previous parameters, if not found redirect
+        if(!session()->has([
+            'selectedClient',
+            'nomProjet',
+            'refProjet',
+            'dateProjet'
+        ])) return redirect()->route('devis_etape_1');
+
+        $parameters = [
+            'gammes' => Gamme::all(),
+        ];
+
+        $goToNextStep = $request->input('goToNextStep');
+        $gammeId = $request->input('gammeId');
+        $modeleId = $request->input('modeleId');
+
+        // Load session if exists
+        $inputs = ['gamme', 'modele'];
+        if($request->session()->has($inputs)){
+            foreach($inputs as $i){
+                $parameters[$i] = $request->session()->get($i);
+            }
+        }
+
+        if($goToNextStep == "true") {
+            $request->validate([
+                'gammeId' => 'required',
+                'modeleId' => 'required'
+            ]);
+
+            $gamme = Gamme::find($gammeId);
+            $modele = Modele::find($modeleId);
+
+            // redirect to next step
+            $request->session()->put([
+                'gamme' => $gamme,
+                'modele' => $modele,
+            ]);
+            return redirect()->route('devis_etape_3');
+
+        }else{
+            // Load modeles if gamme is selected
+            if($parameters['gamme'] || $gammeId){
+                $gamme = $gammeId  ? Gamme::find($gammeId)  : $parameters['gamme'];
+                if($gamme){
+                    $parameters['gamme'] = $gamme;
+                    $parameters['modeles'] = $gamme->modeles;
+                    $parameters['finition'] = $gamme->finition;
+                    $parameters['isolant'] = $gamme->isolant;
+                    $parameters['couverture'] = $gamme->couverture;
+                    $parameters['huisserie'] = $gamme->qualiteHuisserie;
+                    $parameters['ossature'] = $gamme->ossatureBois;
+                }
+            }
+        }
+
+        return view('Devis/Creation_choix_produit',$parameters);
     }
 
-    public function index_etape3()
+    public function index_etape3(Request $request)
     {
+        // Check for previous parameters, if not found redirect
+        if(!session()->has([
+            'selectedClient',
+            'nomProjet',
+            'refProjet',
+            'dateProjet',
+            'gamme',
+            'modele'
+        ])) return redirect()->route('devis_etape_1');
+
+        $goToNextStep = $request->input('goToNextStep');
+        if($goToNextStep == "true") {
+            return redirect()->route('devis_etape_4');
+        }
+
         return view('Devis/Creation_personnalisation');
     }
 
-    public function index_etape4()
+    public function index_etape4(Request $request)
     {
-        return view('Devis/Creation_resume');
+        if(!session()->has([
+            'selectedClient',
+            'nomProjet',
+            'refProjet',
+            'dateProjet',
+            'gamme',
+            'modele'
+        ])) return redirect()->route('devis_etape_1');
+
+        $modele = $request->session()->get('modele');
+        $modules = $modele->modules;
+
+        return view('Devis/Creation_resume',[
+            'modules' => $modules
+        ]);
     }
 
     public function index_etape_finale()

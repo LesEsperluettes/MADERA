@@ -24,6 +24,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @method static \Illuminate\Database\Eloquent\Builder|Section whereTypeSectionId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Section whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Composant[] $composant
+ * @property-read int|null $composant_count
  */
 class Section extends Model
 {
@@ -44,6 +46,15 @@ class Section extends Model
      */
     public function modules(): BelongsToMany
     {
-        return $this->belongsToMany(Module::class,'module_section');
+        return $this->belongsToMany(Module::class,'module_section')->withPivot('quantite');
+    }
+
+    /**
+     * Retourne les composants de cette section
+     * @return BelongsToMany
+     */
+    public function composants(): BelongsToMany
+    {
+        return $this->belongsToMany(Composant::class,'section_composant');
     }
 }

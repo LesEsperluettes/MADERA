@@ -36,7 +36,7 @@ class TypeSection extends Model
      */
     public function parametres(): BelongsToMany
     {
-        return $this->belongsToMany(TypeParameter::class,'type_section_parameter');
+        return $this->belongsToMany(TypeParameter::class,'type_section_parameter')->withPivot('valeur','ordre');
     }
 
     /**

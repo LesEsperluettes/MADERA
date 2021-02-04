@@ -19,6 +19,10 @@ class CreateModuleTable extends Migration
             $table->string("nom");
             $table->float("prix_base");
             $table->float("marge_commerciale");
+
+            $table->bigInteger('remplissage_id')->unsigned()->index();
+            $table->foreign('remplissage_id')->references('id')->on('remplissage');
+
         });
     }
 
@@ -29,6 +33,9 @@ class CreateModuleTable extends Migration
      */
     public function down()
     {
+        Schema::table('module',function (Blueprint $table) {
+            $table->dropForeign('remplissage_id');
+        });
         Schema::dropIfExists('module');
     }
 }

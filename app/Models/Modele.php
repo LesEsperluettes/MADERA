@@ -19,6 +19,16 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @method static \Illuminate\Database\Eloquent\Builder|Modele newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Modele query()
  * @mixin \Eloquent
+ * @property int $id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property string $nom
+ * @property int $gamme_id
+ * @method static \Illuminate\Database\Eloquent\Builder|Modele whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Modele whereGammeId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Modele whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Modele whereNom($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Modele whereUpdatedAt($value)
  */
 class Modele extends Model
 {

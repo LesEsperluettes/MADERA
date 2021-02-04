@@ -5,7 +5,7 @@
 @endsection
 
 @section('script')
-    <script src="{{ asset('js/devis.js') }}"></script>
+    <script src="{{ asset('js/devis/devis1.js') }}"></script>
 @endsection
 
 @section('breadcrumb')
@@ -27,10 +27,6 @@
         <div class="d-inline">--------------------------------</div>
         <div class="d-inline">4</div>
     </div>
-
-    @foreach ($errors->all() as $error)
-        <li>{{ $error }}</li>
-    @endforeach
 
     <div style="background-color: rgb(218, 235, 249);" class="m-3">
         <div class="p-4">
@@ -63,18 +59,33 @@
 
                 <div class="form-group">
                     <label for="nomProjet">Nom du projet</label>
-                    <input type="text" name="nomProjet" id="nomProjet" class="form-control" value="{{ old('nomProjet') }}" @if(!isset($selectedClient)) disabled @endif>
+                    <input type="text" name="nomProjet" id="nomProjet" class="form-control @error('nomProjet') is-invalid @enderror" value="{{ isset($nomProjet) ? $nomProjet : old('nomProjet') }}" @if(!isset($selectedClient)) disabled @endif>
+                    @error('nomProjet')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
 
                 <div class="ref_date_devis">
                     <div class="form-group">
                         <label for="refProjet">Référence du projet</label>
-                        <input type="text" name="refProjet" id="refProjet" class="form-control input2" value="{{ old('refProjet') }}" @if(!isset($selectedClient)) disabled @endif>
+                        <input type="text" name="refProjet" id="refProjet" class="form-control input2 @error('refProjet') is-invalid @enderror" value="{{ isset($refProjet) ? $refProjet : old('refProjet') }}" @if(!isset($selectedClient)) disabled @endif>
+                        @error('refProjet')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
 
                     <div class="form-group div_date">
                         <label for="dateProjet">Date</label>
-                        <input type="date" name="dateProjet" id="dateProjet" class="form-control input2" value="{{ old('dateProjet') }}" @if(!isset($selectedClient)) disabled @endif>
+                        <input type="date" name="dateProjet" id="dateProjet" class="form-control input2 @error('dateProjet') is-invalid @enderror" value="{{ isset($dateProjet) ? $dateProjet : old('dateProjet') }}" @if(!isset($selectedClient)) disabled @endif>
+                        @error('dateProjet')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
                 </div>
 

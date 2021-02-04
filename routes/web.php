@@ -37,13 +37,25 @@ Route::get('/home-co', [App\Http\Controllers\AccueilController::class, 'indexCO'
 // ----------- Others -----------
 Route::get('/contacts', [App\Http\Controllers\ContactController::class, 'index'])->name('contacts');
 
-Route::get('/devis1', [App\Http\Controllers\DevisController::class, 'index_etape1'])->name('devis_etape_1');
+Route::get('/devis1', [App\Http\Controllers\DevisController::class, 'index_etape1'])
+    ->name('devis_etape_1')
+    ->middleware('role:CO');
 
-Route::get('/devis2', [App\Http\Controllers\DevisController::class, 'index_etape2'])->name('devis_etape_2');
+Route::get('/devis2', [App\Http\Controllers\DevisController::class, 'index_etape2'])
+    ->name('devis_etape_2')
+    ->middleware('role:CO');
 
-Route::get('/devis3', [App\Http\Controllers\DevisController::class, 'index_etape3'])->name('devis_etape_3');
-Route::get('/devis4', [App\Http\Controllers\DevisController::class, 'index_etape4'])->name('devis_etape_4');
-Route::get('/devis_success', [App\Http\Controllers\DevisController::class, 'index_etape_finale'])->name('devis_etape_finale');
+Route::get('/devis3', [App\Http\Controllers\DevisController::class, 'index_etape3'])
+    ->name('devis_etape_3')
+    ->middleware('role:CO');
+
+Route::get('/devis4', [App\Http\Controllers\DevisController::class, 'index_etape4'])
+    ->name('devis_etape_4')
+    ->middleware('role:CO');
+
+Route::get('/devis_success', [App\Http\Controllers\DevisController::class, 'index_etape_finale'])
+    ->name('devis_etape_finale')
+    ->middleware('role:CO');
 
 Route::get('/creationModule', [App\Http\Controllers\ModuleController::class, 'module_etape1'])->name('module_etape_1');
 Route::get('/coupePrincipe', [App\Http\Controllers\ModuleController::class, 'module_etape2'])->name('module_etape_2');
