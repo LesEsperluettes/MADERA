@@ -89,11 +89,11 @@ class Gamme extends Model
     }
 
     /**
-     * Retourne les modules qui utilisent cette gamme
+     * Retourne les modeles qui utilisent cette gamme
      * @return HasMany
      */
-    public function modules(): HasMany
+    public function modeles(): HasMany
     {
-        return $this->hasMany(Module::class);
+        return $this->hasMany(Modele::class);
     }
 }

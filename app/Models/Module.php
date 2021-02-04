@@ -44,30 +44,12 @@ class Module extends Model
     protected $table = 'module';
 
     /**
-     * Retourne la gamme de ce module
-     * @return BelongsTo
-     */
-    public function gamme(): BelongsTo
-    {
-        return $this->belongsTo(Gamme::class);
-    }
-
-    /**
      * Retourne le remplissage de ce module
      * @return BelongsToMany
      */
     public function remplissage(): BelongsToMany
     {
         return $this->belongsToMany(Remplissage::class,'module_remplissage');
-    }
-
-    /**
-     * Retourne les devis qui utilisent ce module
-     * @return BelongsToMany
-     */
-    public function devis(): BelongsToMany
-    {
-        return $this->belongsToMany(Devis::class,'module_devis');
     }
 
     /**
@@ -95,5 +77,14 @@ class Module extends Model
     public function composants(): BelongsToMany
     {
         return $this->belongsToMany(Composant::class,'composant_module');
+    }
+
+    /**
+     * Retourne les modeles qui utilisent ce module
+     * @return BelongsToMany
+     */
+    public function modeles(): BelongsToMany
+    {
+        return $this->belongsToMany(Modele::class,'modele_module');
     }
 }

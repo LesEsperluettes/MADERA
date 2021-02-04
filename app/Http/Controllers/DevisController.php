@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
+use App\Models\Gamme;
 use Illuminate\Http\Request;
 
 class DevisController extends Controller
@@ -50,8 +51,9 @@ class DevisController extends Controller
 
     public function index_etape2(Request $request)
     {
-        dd($request);
-        return view('Devis/Creation_choix_produit');
+        return view('Devis/Creation_choix_produit',[
+            'gammes' => Gamme::all()
+        ]);
     }
 
     public function index_etape3()

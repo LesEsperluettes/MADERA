@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateModuleDevisTable extends Migration
+class CreateModeleDevisTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateModuleDevisTable extends Migration
      */
     public function up()
     {
-        Schema::create('module_devis', function (Blueprint $table) {
+        Schema::create('modele_devis', function (Blueprint $table) {
             $table->bigInteger('devis_id')->unsigned()->index();
-            $table->bigInteger('module_id')->unsigned()->index();
-            $table->primary(['devis_id','module_id']);
+            $table->bigInteger('modele_id')->unsigned()->index();
+            $table->primary(['devis_id','modele_id']);
 
             $table->foreign('devis_id')->references('id')->on('devis')->onDelete('cascade');
-            $table->foreign('module_id')->references('id')->on('module')->onDelete('cascade');
+            $table->foreign('modele_id')->references('id')->on('modele')->onDelete('cascade');
         });
     }
 
@@ -30,6 +30,6 @@ class CreateModuleDevisTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('module_devis');
+        Schema::dropIfExists('modele_devis');
     }
 }

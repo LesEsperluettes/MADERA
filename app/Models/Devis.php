@@ -58,8 +58,8 @@ class Devis extends Model
      * Retourne les modules utilisés par ce devis
      * @return BelongsToMany
      */
-    public function modules(): BelongsToMany
+    public function modeles(): BelongsToMany
     {
-        return $this->belongsToMany(Module::class,'module_devis');
+        return $this->belongsToMany(Modele::class,'modele_devis');
     }
 }
